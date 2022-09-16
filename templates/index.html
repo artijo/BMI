@@ -8,5 +8,10 @@
 </head>
 <body>
     <h1>Hello BMI!</h1>
+    {% if session.name %}
+        <span>สวัสดี</span> {{ session.name }}
+        <a href="{{ url_for('logout') }}">Logout</a>
+    {% endif %}
+    
 </body>
 </html>
