@@ -1,6 +1,8 @@
 from flask import Flask,render_template,request,session,redirect
 
+#เรียกการทำงาน Flask
 app = Flask(__name__)
+#ตั้งค่า Secret Key เพื่อให้ส่งค่าแบบ POST ได้
 app.config['SECRET_KEY'] = 'mykey'
 
 
