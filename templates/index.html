@@ -21,20 +21,8 @@
                         </p>
                         <!-- <a href="#" class="btn-main">รายละเอียด ›</a> -->
                     </div>
-                    {% if session['name'] %}
-                    <hr>
-                        <h2>สวัสดีคุณ <strong>{{session['name']}}</strong>!</h2>
-                        <span>BMI ของคุณ: </span><strong>{{session['bmi']}}</strong><br>
-                        <span>BMR ของคุณ: </span><strong>{{session.bmr}} แคลรี่</strong><br>
-                        <!-- {{w}}{{h}}{{g}}
-                        {{r}}-->
-                        <span>TDEE ของคุณ: <strong>{{session.tdee}}</strong> แตล</span><br>
-                        <span>หากคุณต้องการลดน้ำหนักให้ทายไม่เกิน <strong>{{session.limit_cal}}</strong> แคล</span>
-                        <br>
-                        <h3><a href="{{url_for('logout')}}">คำนวณใหม่</a></h3>
-                        
-                    {% else %} 
-                    <form class="input-form" action="{{url_for('index')}}" method="post">
+                    {% if not session['name'] == False %}
+                    <form class="input-form" action="{{url_for('result')}}" method="post">
                         <label for="ืname">ชื่อ</label>
                         <input type=text name="name" placeholder="ป้อนชื่อของคุณ" required />
                         <label for="weight">น้ำหนัก</label>
@@ -58,6 +46,9 @@
                         </select>
                         <input type="submit" name="" value="คำนวณ" class="btn-main">
                     </form>
+                        
+                    {% else %} 
+                        
                     {% endif %}
                 </div>
 
