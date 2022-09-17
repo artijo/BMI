@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Healty</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="../static/css/mobile.css" />
+        <link rel="stylesheet" type="text/css" href="../static/css/desktop.css" media="(min-width: 992px)" />
+    </head>
+
+    <body>
+        <main class="site-body">
+            <div class="s-container">
+                <div class="space"></div>
+                <div class="sec-hero">
+                    <div class="info">
+                        <h2 class="sec-title">Healty</h2>
+                        <p>
+                            ดูแลสุขภาพเพื่อตัวของคุณ
+                        </p>
+                        <!-- <a href="#" class="btn-main">รายละเอียด ›</a> -->
+                    </div>
+                    {% if session['name'] %}
+                    <hr>
+                        <h2>สวัสดีคุณ <strong>{{session['name']}}</strong>!</h2>
+                        <span>BMI ของคุณ: </span><strong>{{session['bmi']}}</strong><br>
+                        <span>อยู่ในเกณฑ์: <strong>{{session.bmi_status}}</strong></span><br>
+                        <span>BMR ของคุณ: </span><strong>{{session.bmr}} แคลรี่</strong><br>
+                        <!-- {{w}}{{h}}{{g}}
+                        {{r}}-->
+                        <span>TDEE ของคุณ: <strong>{{session.tdee}}</strong> แตล</span><br>
+                        <span>หากคุณต้องการลดน้ำหนักให้ทายไม่เกิน <strong>{{session.limit_cal}}</strong> แคล</span>
+                        <br>
+                        <h3><a href="{{url_for('logout')}}">คำนวณใหม่</a></h3>
+                        
+                    {% endif %}
+                </div>
+
+            </div>
+        </main>
+        <script type="text/javascript" src="../static/script.js"></script>
+    </body>
+</html>
