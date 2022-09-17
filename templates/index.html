@@ -28,24 +28,8 @@
                         <span>BMR ของคุณ: </span><strong>{{session.bmr}} แคลรี่</strong><br>
                         <!-- {{w}}{{h}}{{g}}
                         {{r}}-->
-                        {% if session['tdee'] %}
-                            <span>TDEE ของคุณ: <strong>{{session.tdee}}</strong> แตล</span><br>
-                            <span>หากคุณต้องการลดน้ำหนักให้ทายไม่เกิน <strong>{{session.limit_cal}}</strong> แคล</span>
-                        {% else %}
-                        <h2>การเผาผลาญพลังงานโดยปกติ (TDEE)</h2>
-                        <form class="input-form" action="{{url_for('TDEE')}}" method="post">
-                            
-                            <label for="tdee">เลือกลักษณะการใช้ชีวิตของคุณ</label>
-                            <select id="tdee" name="tdee" required>
-                                <option value="nowo">นั่งทำงานอยู่กับที่ และไม่ได้ออกกำลังกายเลย</option>
-                                <option value="wo1">ออกกำลังกายหรือเล่นกีฬาเล็กน้อย ประมาณอาทิตย์ละ 1-3 วัน</option>
-                                <option value="wo2">ออกกำลังกายหรือเล่นกีฬาปานกลาง ประมาณอาทิตย์ละ 3-5 วัน</option>
-                                <option value="wo3">ออกกำลังกายหรือเล่นกีฬาอย่างหนัก ประมาณอาทิตย์ละ 6-7 วัน</option>
-                                <option value="wo4">ออกกำลังกายหรือเล่นกีฬาอย่างหนักทุกวันเช้าเย็น</option>
-                              </select>
-                            <input type="submit" name="" value="คำนวณ" class="btn-main">
-                        </form>
-                        {% endif %}
+                        <span>TDEE ของคุณ: <strong>{{session.tdee}}</strong> แตล</span><br>
+                        <span>หากคุณต้องการลดน้ำหนักให้ทายไม่เกิน <strong>{{session.limit_cal}}</strong> แคล</span>
                         <br>
                         <h1></h1>
                         <a href="{{url_for('logout')}}">คำนวณใหม่</a>
@@ -64,6 +48,14 @@
                             <option value="men">ชาย</option>
                             <option value="famale">หญิง</option>
                           </select>
+                        <label for="tdee">เลือกลักษณะการใช้ชีวิตของคุณ</label>
+                        <select id="tdee" name="tdee" required>
+                            <option value="nowo">นั่งทำงานอยู่กับที่ และไม่ได้ออกกำลังกายเลย</option>
+                            <option value="wo1">ออกกำลังกายหรือเล่นกีฬาเล็กน้อย ประมาณอาทิตย์ละ 1-3 วัน</option>
+                            <option value="wo2">ออกกำลังกายหรือเล่นกีฬาปานกลาง ประมาณอาทิตย์ละ 3-5 วัน</option>
+                            <option value="wo3">ออกกำลังกายหรือเล่นกีฬาอย่างหนัก ประมาณอาทิตย์ละ 6-7 วัน</option>
+                            <option value="wo4">ออกกำลังกายหรือเล่นกีฬาอย่างหนักทุกวันเช้าเย็น</option>
+                        </select>
                         <input type="submit" name="" value="คำนวณ" class="btn-main">
                     </form>
                     {% endif %}
