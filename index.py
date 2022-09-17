@@ -13,11 +13,14 @@ def index():
     weight = False
     height = False
     gender = False
+    bmi_result = False
     if request.method == 'POST':
         weight = request.form['weight']
         height = request.form['height']
         gender = request.form['gender']
-    return render_template("index.html",w=weight,h=height,g=gender)
+        bmi_result = float(weight)/(float(height)/100)**2
+        bmi_result = round(bmi_result, 2)
+    return render_template("index.html",w=weight,h=height,g=gender,r=bmi_result)
 
 @app.route('/test',methods=['GET','POST'])
 def testsm():
