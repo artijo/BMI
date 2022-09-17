@@ -51,7 +51,6 @@ strong {
 .sec-hero {
     margin: 0 calc(50% - 50vw);
     text-align: center;
-    height: 100vh;
     .info {
         max-width: 400px;
         width: 80%;
@@ -69,7 +68,7 @@ strong {
         padding: 0 35px;
 
         label {
-            font-size: 2rem;
+            font-size: 0.9rem;
         }
         input {
             width: -webkit-fill-available;
