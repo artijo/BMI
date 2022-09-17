@@ -30,6 +30,8 @@ p {
         display: flex;
         flex-flow: column;
         position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
 
         label {
             font-size: 2rem;
