@@ -15,7 +15,6 @@ p {
 
 
 .sec-hero {
-    height: 100vh;
     position: relative;
     min-height: 600px;
     max-height: 800px;
@@ -34,7 +33,7 @@ p {
         transform: translateX(-50%);
 
         label {
-            font-size: 2rem;
+            font-size: 1rem;
         }
         input {
             width: 400px;
