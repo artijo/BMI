@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Healty BMI</title>
+        <title>Healty</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" type="text/css" href="../static/css/mobile.css" />
         <link rel="stylesheet" type="text/css" href="../static/css/desktop.css" media="(min-width: 992px)" />
@@ -15,7 +15,7 @@
                 <div class="sec-hero">
                     <div class="info">
                         
-                        <h2 class="sec-title">Healty BMI</h2>
+                        <h2 class="sec-title">Healty</h2>
                         <p>
                             ดูแลสุขภาพเพื่อตัวของคุณ
                         </p>
@@ -31,8 +31,8 @@
                         <span>TDEE ของคุณ: <strong>{{session.tdee}}</strong> แตล</span><br>
                         <span>หากคุณต้องการลดน้ำหนักให้ทายไม่เกิน <strong>{{session.limit_cal}}</strong> แคล</span>
                         <br>
-                        <h1></h1>
-                        <a href="{{url_for('logout')}}">คำนวณใหม่</a>
+                        <h3><a href="{{url_for('logout')}}">คำนวณใหม่</a></h3>
+                        
                     {% else %} 
                     <form class="input-form" action="{{url_for('index')}}" method="post">
                         <label for="ืname">ชื่อ</label>
