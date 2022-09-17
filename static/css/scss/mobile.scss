@@ -67,14 +67,12 @@ strong {
         flex-flow: column;
         align-items: flex-start;
         padding: 0 35px;
-        left: 50%;
-        transform: translateX(-50%);
 
         label {
             font-size: 2rem;
         }
         input {
-            width: 400px;
+            width: -webkit-fill-available;
             height: 50px;
         }
         select {
