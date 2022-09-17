@@ -23,12 +23,13 @@
                     </div>
                     {% if w %}
                         {{w}}{{h}}{{g}}
+                        {{r}}
                     {% else %}
                     <form class="input-form" action="{{url_for('index')}}" method="post">
                         <label for="weight">น้ำหนัก</label>
-                        <input type=number name="weight" placeholder="น้ำหนักของคุณ (km)" step=0.1 required />
+                        <input type=number name="weight" placeholder="น้ำหนักของคุณ (km)" step=0.1 min="1" max="200" required />
                         <label for="height">ส่วนสูง</label>
-                        <input type="number" name="height" placeholder="ส่วนสูงของคุณ (cm)" required>
+                        <input type="number" name="height" placeholder="ส่วนสูงของคุณ (cm)" min="25" max="300" required>
                         <label for="gender">เพศ</label>
                         <select id="gender" name="gender" required>
                             <option value="men">ชาย</option>
