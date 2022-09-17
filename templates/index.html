@@ -1,17 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Project</title>
-</head>
-<body>
-    <h1>Hello BMI!</h1>
-    {% if session.name %}
-        <span>สวัสดี</span> {{ session.name }}
-        <a href="{{ url_for('logout') }}">Logout</a>
-    {% endif %}
-    
-</body>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Healty BMI</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+        <link rel="stylesheet" type="text/css" href="css/desktop.css" media="(min-width: 992px)" />
+    </head>
+
+    <body>
+        <main class="site-body">
+            <div class="s-container">
+                <div class="sec-hero">
+                    <div class="bg">
+                        <img src="https://cdn.artijo.com/img/bmi_project/bg.svg" alt="">
+                    </div>
+                    
+                    <div class="info">
+                        
+                        <h2 class="sec-title">Healty BMI</h2>
+                        <p>
+                            ดูแลสุขภาพเพื่อตัวของคุณ
+                        </p>
+                        <!-- <a href="#" class="btn-main">รายละเอียด ›</a> -->
+                    </div>
+                    <form class="input-form" action="" method="post">
+                        <label for="weight">น้ำหนัก</label>
+                        <input type=number name="weight" placeholder="น้ำหนักของคุณ (km)" step=0.1 required />
+                        <label for="height">ส่วนสูง</label>
+                        <input type="number" name="height" placeholder="ส่วนสูงของคุณ (cm)" required>
+                        <label for="gender">เพศ</label>
+                        <select id="gender" name="gender" required>
+                            <option value="men">ชาย</option>
+                            <option value="famale">หญิง</option>
+                          </select>
+                        <input type="submit" name="" value="คำนวณ" class="btn-main">
+                    </form>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- <footer class="site-footer">
+            <div class="s-container">
+                <a href="#" class="logo">
+                    <img src="img/logo-white.svg" alt="logo" />
+                </a>
+                <div class="company">
+                    <strong class="title">บริษัท ต้นไม้ในบ้าน จำกัด</strong>
+                    <p>
+                        123 หมู่ 4 ถ. รักษ์โลก แขวงต้นไม้ <br />
+                        เขตในบ้าน กรุงเทพฯ 10000
+                    </p>
+                    <p>
+                        โทร
+                        <strong><a href="tel:+66812345678">081-234-5678</a></strong> • ไลน์
+                        <strong><a href="http://line.me/ti/p/@linebizth" target="_blank">TonmaiNaiBaan</a></strong>
+                        <br />
+                        จันทร์ - เสาร์ 10:00 - 19:00 น.
+                    </p>
+                </div>
+                <div class="more">
+                    <div class="social">
+                        <a href="#"><img src="img/instagram.svg" alt="instagram"/></a>
+                        <a href="#"><img src="img/facebook.svg" alt="facebook"/></a>
+                        <a href="#"><img src="img/twitter.svg" alt="twitter"/></a>
+                        <a href="#"><img src="img/line.svg" alt="line"/></a>
+                    </div>
+                    <div class="copyright">© 2022. All rights reserved</div>
+                </div>
+            </div>
+        </footer> -->
+
+        <script type="text/javascript" src="script.js"></script>
+    </body>
 </html>

@@ -15,11 +15,13 @@ def index():
 def testsm():
     name = False
     age = False
+    cars = False
     if request.method == 'POST':
         name = request.form['name']
         age = request.form['age']
         session['name']=name
-    return render_template("test.html",name=name,age=age)
+        cars = request.form['cars']
+    return render_template("test.html",name=name,age=age,cars=cars)
 
 @app.route('/logout')
 def logout():
