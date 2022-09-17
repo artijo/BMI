@@ -16,12 +16,16 @@ def index():
     age = False
     bmr_result = False
     name = False
+    tdee = False
+    result_tdee = False
+    limit_cal = False
     if request.method == 'POST':
         name = request.form['name']
         weight = request.form['weight']
         height = request.form['height']
         age = request.form['age']
         gender = request.form['gender']
+        tdee = request.form['tdee']
         #BMI Calulator
         bmi_result = float(weight)/(float(height)/100)**2
         bmi_result = round(bmi_result, 2)
@@ -32,6 +36,22 @@ def index():
         if gender == 'famale':
             bmr_result = 665 + (9.6*float(weight)) + (1.8*float(height)) - (4.7*int(age))
             bmr_result = round(bmr_result, 1)
+        #TDEE
+        if tdee == 'nowo':
+            result_tdee = bmr_result*1.2
+        if tdee == 'wo1':
+            result_tdee = bmr_result*1.375
+        if tdee == 'wo2':
+            result_tdee = bmr_result*1.55
+        if tdee == 'wo3':
+            result_tdee = bmr_result*1.725
+        if tdee == 'wo4':
+            result_tdee = bmr_result*1.9
+        result_tdee = round(result_tdee, 1)
+
+        #หากต้องการลดน้ำหนัก
+        limit_cal = result_tdee - 500
+        limit_cal = round(limit_cal, 1)
         
         
 
@@ -40,37 +60,10 @@ def index():
         session['name'] = name
         session['bmi'] = bmi_result
         session['bmr'] = bmr_result
-
+        session['tdee'] = result_tdee
+        session['limit_cal'] = limit_cal
     return render_template("index.html")
 
-@app.route('/tdee', methods=['GET','POST'])
-def TDEE():
-    tdee = False
-    result_tdee = False
-    limit_cal = False
-    bmr = session['bmr']
-    if request.method == 'POST':
-        tdee = request.form['tdee']
-        if tdee == 'nowo':
-            result_tdee = bmr*1.2
-        if tdee == 'wo1':
-            result_tdee = bmr*1.375
-        if tdee == 'wo2':
-            result_tdee = bmr*1.55
-        if tdee == 'wo3':
-            result_tdee = bmr*1.725
-        if tdee == 'wo4':
-            result_tdee = bmr*1.9
-    result_tdee = round(result_tdee, 1)
-
-    #หากต้องการลดน้ำหนัก
-    limit_cal = result_tdee - 500
-    limit_cal = round(limit_cal, 1)
-    #session
-    session['tdee'] = result_tdee
-    session['limit_cal'] = limit_cal
-
-    return redirect('/')
 
 @app.route('/dietplanning', methods=['GET','POST'])
 def Diet_Planning():
@@ -99,7 +92,6 @@ def Diet_Planning():
 @app.route('/logout')
 def logout():
     session['name'] = None
-    session['tdee'] = None
     return redirect('/')
 
 if __name__ == "__main__":
