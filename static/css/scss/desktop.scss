@@ -20,24 +20,16 @@ p {
     min-height: 600px;
     max-height: 800px;
     .info {
-        position: absolute;
         max-width: 480px;
-        top: 40%;
-        left: 50%;
-        transform: translateX(-50%);
+        margin-top: 50px;
     }
     .sec-title {
         font-size: 44px;
     }
     .input-form {
         display: flex;
-        position: absolute;
         flex-flow: column;
         position: absolute;
-        align-items: flex-start;
-        left: 50%;
-        top: 35%;
-        transform: translateX(-50%);
 
         label {
             font-size: 2rem;
