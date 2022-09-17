@@ -1,3 +1,4 @@
+from distutils.log import debug
 from flask import Flask,render_template,request,session,redirect
 
 #เรียกการทำงาน Flask
@@ -7,9 +8,16 @@ app.config['SECRET_KEY'] = 'mykey'
 
 
 
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 def index():
-    return render_template("index.html")
+    weight = False
+    height = False
+    gender = False
+    if request.method == 'POST':
+        weight = request.form['weight']
+        height = request.form['height']
+        gender = request.form['gender']
+    return render_template("index.html",w=weight,h=height,g=gender)
 
 @app.route('/test',methods=['GET','POST'])
 def testsm():
@@ -29,4 +37,4 @@ def logout():
     return redirect('/')
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
