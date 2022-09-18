@@ -23,7 +23,7 @@ def bmi_status(bmi):
     if bmi >= 18 and bmi < 18.6:
         return 'ผอม'
     if bmi >= 18.6 and bmi < 26:
-        return 'good'
+        return 'สมส่วน'
     if bmi >= 26 and bmi < 31:
         return 'น้ำหนักเกิน'
     if bmi >= 31 and bmi < 36:

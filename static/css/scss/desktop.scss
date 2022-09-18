@@ -59,43 +59,12 @@ p {
     }
 }
 
-.sec-title {
-    font-size: 32px;
-}
-
-
-.site-footer {
-    text-align: left;
-    padding: 40px 0;
-    .s-container {
-        display: flex;
-        align-items: center;
-    }
-    .logo {
-        img {
-            width: 50px;
-        }
-    }
-    .company {
-        padding-left: 20px;
-        position: relative;
-        .title {
-            font-size: 14px;
-            margin: 0;
-        }
-        br {
-            display: none;
-        }
-        p {
-            margin-bottom: 0;
-            font-size: 12px;
-        }
-    }
-    .more {
-        margin-left: auto;
-        text-align: center;
-    }
-}
 ._desktop {
     display: none;
+}
+
+// Add More
+
+.bmi-box {
+    max-width: 26rem;
 }

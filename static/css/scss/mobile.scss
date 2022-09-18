@@ -89,35 +89,34 @@ strong {
 }
 
 
-
-.site-footer {
-    background: #075d45;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    .title {
-        margin: 10px 0;
-        display: block;
-    }
-    a {
-        color: #fff;
-        font-weight: $heading-font-weight;
-    }
-    .social {
-        a {
-            display: inline-block;
-            margin: 10px 6px;
-        }
-    }
-    .copyright {
-        font-size: 10px;
-        text-transform: uppercase;
-    }
-}
-
 ._mobile {
     display: none;
 }
 .space {
     height: 50px;
+}
+//Add More.
+
+.title-name {
+    text-align: center;
+}
+
+.bmi-box {
+    display: flex;
+    margin: auto;
+    max-width: 18rem;
+    .bmi-head {
+        text-align: center;
+        font-size: 1.7em;
+    }
+    .bmi-ct {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap: 5px;
+    }
+}
+
+.newcal {
+    text-align: center;
 }
