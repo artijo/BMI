@@ -39,10 +39,6 @@ p {
         label {
             font-size: 1rem;
         }
-        input {
-            width: 400px;
-            height: 50px;
-        }
         select {
             width: 75px;
             height: 45px;
@@ -67,4 +63,9 @@ p {
 
 .bmi-box {
     max-width: 26rem;
+}
+
+.input-form {
+    max-width: 401px;
+    width: -webkit-fill-available;
 }
