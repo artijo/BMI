@@ -1,3 +1,4 @@
+from unicodedata import name
 from flask import Flask,render_template,request,session,redirect
 import function as fn
 import data
@@ -10,8 +11,14 @@ app.config['SECRET_KEY'] = 'mykey'
 @app.route('/')
 def index():
 
+    #session
+    session['forlist'] = False
+    session['sumcal'] = 0
+    session['foods'] = list()
+    session['foodscal'] = list()
     #test
-    session['mylist'] = list()
+    session['mylist'] = []
+    
     #endtest
     return render_template('index.html')
 
@@ -61,25 +68,45 @@ def result():
     session['bmi_status'] = bmi_status
     return render_template("result.html")
 
-chc = False
+@app.route('/foods',methods=['GET','POST'])
+def foodscal():
+    name=False
+    food = False
+    sumcal = False
+    countfoods = False
+    foods=data.foods
+    if request.method == 'POST':
+        session['forlist'] = name
+        food = request.form['food']
+
+        session['foods'].append(foods[food]['name'])
+        session['foodscal'].append(foods[food]['cal'])
+    countfoods = len(session['foods'])
+
+    for i in session['foodscal']:
+        sumcal = sumcal+i
+    
+
+    return render_template("foods.html",menu=foods,c=countfoods,s=sumcal)
 
 
 @app.route('/test',methods=['GET','POST'])
 def testsm():
+    mmmm = []
     name = False
     age = False
     cars = False
 
     # lister = request.args.get("sum")
     if request.method == 'POST':
+        session['forlist'] = name
         
-        ig = int(request.form['sum'])
         # name = request.form['name']
         # age = request.form['age']
-        session['name']=name
+        
         # cars = request.form['cars']
         # lister.append(request.form['sum'])
-        session['mylist'].append(int(request.form['sum']))
+        session['mylist'].append(request.form['sum'])
 
     # return render_template("test.html",name=name,age=age,cars=cars,bm=session['bmr'],st='good')
     return render_template("test.html")
