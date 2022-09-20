@@ -36,6 +36,7 @@ def result():
     bmi_result = fn.bmi(weight, height)
     #BMI Status
     bmi_status = fn.bmi_status(bmi_result)
+    bmi_status = data.BMI[bmi_status]
     #BMR Calulator
     bmr_result = fn.bmr(weight, height, age, gender)
     #TDEE

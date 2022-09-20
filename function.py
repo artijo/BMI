@@ -17,21 +17,21 @@ def bmr(weight, height, age, gender):
 
 def bmi_status(bmi):
     if bmi < 16:
-        return 'ผอมมากไป'
+        return 'thin3'
     if bmi >= 16 and bmi < 18:
-        return 'ผอมพอสมควร'
+        return 'thin2'
     if bmi >= 18 and bmi < 18.6:
-        return 'ผอม'
+        return 'thin'
     if bmi >= 18.6 and bmi < 26:
-        return 'สมส่วน'
+        return 'good'
     if bmi >= 26 and bmi < 31:
-        return 'น้ำหนักเกิน'
+        return 'fat'
     if bmi >= 31 and bmi < 36:
-        return 'น้ำหนักเกิน ระดับ 1'
+        return 'fat1'
     if bmi >= 46 and bmi < 41:
-        return 'น้ำหนักเกิน ระดับ 2'
+        return 'fat2'
     if bmi > 40:
-        return 'น้ำหนักเกิน ระดับ 3'
+        return 'fat3'
 
 def tdee(tdee_input ,bmr):
     result_tdee = False
