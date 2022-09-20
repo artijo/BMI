@@ -29,7 +29,20 @@
     {{bm}}
     {{session.bmr}}
 
-    {{td[st]['status']}}
+
+    <br>
+    <form action="{{url_for('testsm')}}" method="post">
+        <input type="number" name="sum" id="">
+        <input type="submit">
+    </form>
+
+    {% if session['mylist'] %}
+        <p>{{session['mylist']}}</p>
+        {% for x in session.mylist %}
+            <p>{{x}}</p>
+        {% endfor %}
+    {% endif %}
+    
 
 </body>
 </html>

@@ -9,6 +9,10 @@ app.config['SECRET_KEY'] = 'mykey'
 
 @app.route('/')
 def index():
+
+    #test
+    session['mylist'] = list()
+    #endtest
     return render_template('index.html')
 
 @app.route('/result', methods=['GET','POST'])
@@ -57,19 +61,28 @@ def result():
     session['bmi_status'] = bmi_status
     return render_template("result.html")
 
+chc = False
+
 
 @app.route('/test',methods=['GET','POST'])
 def testsm():
     name = False
     age = False
     cars = False
-    test_data = data.testdata
+
+    # lister = request.args.get("sum")
     if request.method == 'POST':
-        name = request.form['name']
-        age = request.form['age']
+        
+        ig = int(request.form['sum'])
+        # name = request.form['name']
+        # age = request.form['age']
         session['name']=name
-        cars = request.form['cars']
-    return render_template("test.html",name=name,age=age,cars=cars,bm=session['bmr'],td=test_data,st='good')
+        # cars = request.form['cars']
+        # lister.append(request.form['sum'])
+        session['mylist'].append(int(request.form['sum']))
+
+    # return render_template("test.html",name=name,age=age,cars=cars,bm=session['bmr'],st='good')
+    return render_template("test.html")
 
 @app.route('/logout')
 def logout():
