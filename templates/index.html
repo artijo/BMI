@@ -16,14 +16,13 @@
                 <div class="space"></div>
                 <div class="sec-hero">
                     <div class="info">
-                        
                         <h2 class="sec-title">Healty</h2>
-                        <p>
-                            ดูแลสุขภาพเพื่อตัวของคุณ
-                        </p>
+                        <p>ดูแลสุขภาพเพื่อตัวของคุณ</p>
                         <!-- <a href="#" class="btn-main">รายละเอียด ›</a> -->
                     </div>
+                </div>
                     {% if not session['name'] == False %}
+                <div class="h-form">
                     <form class="input-form" action="{{url_for('result')}}" method="post">
                         <label for="ืname">ชื่อ</label>
                         <input type=text name="name" placeholder="ป้อนชื่อของคุณ" required />
@@ -53,7 +52,7 @@
                         
                     {% endif %}
                 </div>
-
+                <div class="space"></div>
             </div>
         </main>
         <script type="text/javascript" src="../static/script.js"></script>

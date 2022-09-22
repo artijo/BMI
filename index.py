@@ -1,4 +1,3 @@
-from unicodedata import name
 from flask import Flask,render_template,request,session,redirect
 import function as fn
 import data

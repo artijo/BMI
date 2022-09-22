@@ -4,6 +4,10 @@
 @import "begin";
 @import "fonts";
 
+body {
+    background-color: #e5e5e7;
+}
+
 .site-body {
     background-image: url(https://cdn.artijo.com/img/bmi_project/bg-mobile.svg);
     background-repeat: no-repeat;
@@ -60,29 +64,7 @@ strong {
     .sec-title {
         font-size: 28px;
     }
-    .input-form {
-        display: flex;
-        position: relative;
-        flex-flow: column;
-        align-items: flex-start;
-        padding: 0 35px;
-
-        label {
-            font-size: 0.9rem;
-        }
-        input {
-            width: -webkit-fill-available;
-            height: 50px;
-        }
-        select {
-            width: 75px;
-            height: 45px;
-        }
-        .btn-main {
-            margin-top: 12px;
-            width: max-content;
-        }
-    }
+    
     .pic {
         margin: -500px -60px 0;
     }
@@ -97,6 +79,32 @@ strong {
 }
 //Add More.
 
+.h-form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    .input-form {
+        display: flex;
+        flex-flow: column;
+        margin: auto;
+
+        label {
+            font-size: 0.9rem;
+        }
+        input {
+            width: -webkit-fill-available;
+            height: 50px;
+        }
+        select {
+            height: 45px;
+        }
+        .btn-main {
+            margin-top: 12px;
+            width: max-content;
+        }
+    }
+}
+
 .title-name {
     text-align: center;
 }
@@ -104,7 +112,7 @@ strong {
 .bmi-box {
     display: flex;
     margin: auto;
-    max-width: 18rem;
+    max-width: 20rem;
     .bmi-head {
         text-align: center;
         font-size: 1.7em;
