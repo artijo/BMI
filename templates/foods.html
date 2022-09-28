@@ -33,15 +33,15 @@
                                 <option value="{{i}}">{{menu[i]['name']}}</option>
                                 {% endfor %}
                             </select> 
-                                <input type="submit" class="btn-main" value="ส่งข้อมูล">
+                                <input type="submit" name="submit" class="btn-main" value="ส่งข้อมูล">
                         </form>
                         <div class="or">
                             <span>หรือ</span>
                         </div>
-                        <form action="" method="post">
-                            <input type="text" placeholder="ป้อนชื่ออาหาร" name="foodcustom">
-                            <input type="number" placeholder="ป้อนพลังงาน (Kcal)" name="calcustom">
-                            <input type="submit" name="" id="" value="ส่งข้อมูล" class="btn-main">
+                        <form action="{{url_for('foodscal')}}" method="post">
+                            <input type="text" placeholder="ป้อนชื่ออาหาร" name="food">
+                            <input type="number" placeholder="ป้อนพลังงาน (Kcal)" name="foodcal">
+                            <input type="submit" name="submit" id="" value="ส่งข้อมูลกำหนดเอง" class="btn-main">
                         </form>
                     </div>
                     {% if session['foods'] %}

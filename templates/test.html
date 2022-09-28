@@ -7,42 +7,22 @@
     <title>ทดสอบส่งข้อมูล Test</title>
 </head>
 <body>
-    {% if name %}
-        {{name}}
-        {{cars}}
-        
-        
-    {% else %}
-        <form action="{{url_for("testsm")}}" method="post">
-            <input type="text" name="name">
-            <input type="number" name="age">
-            <label for="cars">Choose a car:</label>
-            <select id="cars" name="cars">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="fiat">Fiat</option>
-                <option value="audi">Audi</option>
-            </select>
-            <input type="submit" name="submit">
+
+        ttt
+        <form action="{{url_for('testsm')}}" method="post">
+            <input type="text" name="testinput" id="">
+            <input type="submit" name="submit" id="" value="ส">
         </form>
-    {% endif %}
-    {{bm}}
-    {{session.bmr}}
-
-
-    <br>
+    
     <form action="{{url_for('testsm')}}" method="post">
         <input type="text" name="sum" id="">
-        <input type="submit">
+        <input type="submit" name="submit" value="สส">
     </form>
 
-    {% if session['mylist'] %}
-        <p>{{session['mylist']}}</p>
-        {% for x in session.mylist %}
-            <p>{{x}}</p>
-        {% endfor %}
-    {% endif %}
     
+    {% if ttt %}
+    {{ttt}}
+    {% endif %}
 
 </body>
 </html>

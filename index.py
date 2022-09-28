@@ -71,15 +71,24 @@ def result():
 def foodscal():
     name=False
     food = False
+    foodcal = False
     sumcal = False
     countfoods = False
     foods=data.foods
     if request.method == 'POST':
         session['forlist'] = name
-        food = request.form['food']
+        if request.form['submit'] == 'ส่งข้อมูล':
+            food = request.form['food']
 
-        session['foods'].append(foods[food]['name'])
-        session['foodscal'].append(foods[food]['cal'])
+            session['foods'].append(foods[food]['name'])
+            session['foodscal'].append(foods[food]['cal'])
+        if request.form['submit'] == 'ส่งข้อมูลกำหนดเอง':
+            food = request.form['food']
+            foodcal = int(request.form['foodcal'])
+
+            session['foods'].append(food)
+            session['foodscal'].append(foodcal)
+
     countfoods = len(session['foods'])
 
     for i in session['foodscal']:
@@ -96,19 +105,24 @@ def testsm():
     age = False
     cars = False
 
+    testinput = False
+
     # lister = request.args.get("sum")
     if request.method == 'POST':
         session['forlist'] = name
         
         # name = request.form['name']
         # age = request.form['age']
-        
+        if request.form['submit'] == 'ส':
+            testinput = request.form['testinput']
         # cars = request.form['cars']
         # lister.append(request.form['sum'])
-        session['mylist'].append(request.form['sum'])
+        if request.form['submit'] == 'สส':
+
+            session['mylist'].append(request.form['sum'])
 
     # return render_template("test.html",name=name,age=age,cars=cars,bm=session['bmr'],st='good')
-    return render_template("test.html")
+    return render_template("test.html",ttt=testinput)
 
 @app.route('/logout')
 def logout():
