@@ -160,6 +160,12 @@ strong {
         select {
             min-width: 220px;
         }
+        input {
+            width: 220px;
+        }
+        .btn-main {
+            width: min-content;
+        }
     }
     .show-fbox{
         max-width: 350px;
@@ -182,6 +188,14 @@ strong {
     .totol{
         display: flex;
         justify-content: space-between;
+    }
+    .or {
+        margin: auto;
+        background-color: bisque;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        padding: 10px;
+        width: fit-content;
     }
     
 }

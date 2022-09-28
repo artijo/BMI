@@ -34,6 +34,14 @@
                         </select> 
                             <input type="submit" class="btn-main" value="ส่งข้อมูล">
                     </form>
+                    <div class="or">
+                        <span>หรือ</span>
+                    </div>
+                    <form action="" method="post">
+                        <input type="text" placeholder="ป้อนชื่ออาหาร" name="foodcustom">
+                        <input type="number" placeholder="ป้อนพลังงาน (Kcal)" name="calcustom">
+                        <input type="submit" name="" id="" value="ส่งข้อมูล" class="btn-main">
+                    </form>
                 </div>
                 {% if session['foods'] %}
                 <div class="pickfood-f">
