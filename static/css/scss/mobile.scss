@@ -139,3 +139,49 @@ strong {
     align-items: center;
     margin-top: -25px;
 }
+
+.pickfood-f {
+    background-color: #fff;
+    max-width: 450px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    .title-p {
+        text-align: center;
+        font-size: 24px;
+    }
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        gap: 10px;
+        select {
+            min-width: 220px;
+        }
+    }
+    .show-fbox{
+        max-width: 350px;
+        width: -webkit-fill-available;
+        margin: auto;
+        padding: 20px;
+        .show-foods{
+            display: grid;
+            grid-template-columns: auto auto;
+            
+            .s{
+
+            }
+            .e{
+                text-align: end;
+            }
+        }
+        
+    }
+    .totol{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+}
