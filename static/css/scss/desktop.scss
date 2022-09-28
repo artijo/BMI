@@ -74,3 +74,13 @@ p {
     max-width: 401px;
     width: -webkit-fill-available;
 }
+
+.gridd {
+    display: flex;
+    margin-top: 50px;
+
+    .pickfood-f{
+        min-width: 480px;
+        margin: auto;
+    }
+}

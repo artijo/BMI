@@ -24,55 +24,46 @@
                     </div>
                 </div>
 
-                <div class="pickfood-f">
-                    <h2 class="title-p">เลือกอาหารที่คุณรับประทาน</h2>
-                    <form action="{{url_for('foodscal')}}" method="post">
-                        <select id="select-state" name="food" placeholder="เลือกอาหาร...">
-                            {% for i in menu %}
-                            <option value="{{i}}">{{menu[i]['name']}}</option>
-                            {% endfor %}
-                        </select> 
-                            <input type="submit" class="btn-main" value="ส่งข้อมูล">
-                    </form>
-                    <div class="or">
-                        <span>หรือ</span>
+                <div class="gridd">
+                    <div class="pickfood-f">
+                        <h2 class="title-p">เลือกอาหารที่คุณรับประทาน</h2>
+                        <form action="{{url_for('foodscal')}}" method="post">
+                            <select id="select-state" name="food" placeholder="เลือกอาหาร...">
+                                {% for i in menu %}
+                                <option value="{{i}}">{{menu[i]['name']}}</option>
+                                {% endfor %}
+                            </select> 
+                                <input type="submit" class="btn-main" value="ส่งข้อมูล">
+                        </form>
+                        <div class="or">
+                            <span>หรือ</span>
+                        </div>
+                        <form action="" method="post">
+                            <input type="text" placeholder="ป้อนชื่ออาหาร" name="foodcustom">
+                            <input type="number" placeholder="ป้อนพลังงาน (Kcal)" name="calcustom">
+                            <input type="submit" name="" id="" value="ส่งข้อมูล" class="btn-main">
+                        </form>
                     </div>
-                    <form action="" method="post">
-                        <input type="text" placeholder="ป้อนชื่ออาหาร" name="foodcustom">
-                        <input type="number" placeholder="ป้อนพลังงาน (Kcal)" name="calcustom">
-                        <input type="submit" name="" id="" value="ส่งข้อมูล" class="btn-main">
-                    </form>
-                </div>
-                {% if session['foods'] %}
-                <div class="pickfood-f">
-                    <h2 class="title-p">อาหารที่คุณรับประทาน</h2>
-                    <div class="show-fbox">
-                        <div class="show-foods">
-                        {% for i in range(c) %}
-                            <div class="s">{{session.foods[i]}}</div>
-                            <div class="e">{{session.foodscal[i]}}</div>
-                        {% endfor %}
+                    {% if session['foods'] %}
+                    <div class="pickfood-f">
+                        <h2 class="title-p">อาหารที่คุณรับประทาน</h2>
+                        <div class="show-fbox">
+                            <div class="show-foods">
+                            {% for i in range(c) %}
+                                <div class="s">{{session.foods[i]}}</div>
+                                <div class="e">{{session.foodscal[i]}}</div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                        <div class="totol">
+                            <p>คุณทานไป {{s}} Kcal</p>
+                            <p>คุณสามารถทานได้อีก...Kcal</p>
                         </div>
                     </div>
-                    <div class="totol">
-                        <p>คุณทานไป {{s}} Kcal</p>
-                        <p>คุณสามารถทานได้อีก...Kcal</p>
-                    </div>
-                </div>
-                {% endif %}
-
-                <!-- <div>
-                    {% if session['foods'] %}
-                        {{session.foods}}
-                        {{session.foodscal}}
-                        {% for i in range(c) %}
-                            <p>{{session.foods[i]}}</p>
-                            <p>{{session.foodscal[i]}}</p>
-                        {% endfor %}
-                        {{s}}
                     {% endif %}
-                </div> -->
+                </div>
             </div> 
+            <div class="space"></div>
         </main>
         <script type="text/javascript" src="../static/script.js"></script>
         <script type="text/javascript" src="../static/css/bootstrap/js/bootstrap.min.js"></script>
