@@ -34,6 +34,7 @@ def result():
     result_tdee = False
     limit_cal = False
     bmi_status = False
+    bmi_tdee_des = False
     test_data = False
     if request.method == 'POST':
         name = request.form['name']
@@ -51,6 +52,7 @@ def result():
     bmr_result = fn.bmr(weight, height, age, gender)
     #TDEE
     result_tdee = fn.tdee(tdee, bmr_result)
+    bmi_tdee_des = fn.bmr_des(fn.bmi_status(bmi_result),result_tdee)
 
     #หากต้องการลดน้ำหนัก
     limit_cal = result_tdee - 500
@@ -65,7 +67,7 @@ def result():
     session['tdee'] = result_tdee
     session['limit_cal'] = limit_cal
     session['bmi_status'] = bmi_status
-    return render_template("result.html")
+    return render_template("result.html",tdee_des=bmi_tdee_des)
 
 @app.route('/foods',methods=['GET','POST'])
 def foodscal():

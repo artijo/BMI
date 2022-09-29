@@ -28,7 +28,7 @@ def bmi_status(bmi):
         return 'fat'
     if bmi >= 31 and bmi < 36:
         return 'fat1'
-    if bmi >= 46 and bmi < 41:
+    if bmi >= 36 and bmi < 41:
         return 'fat2'
     if bmi > 40:
         return 'fat3'
@@ -47,3 +47,16 @@ def tdee(tdee_input ,bmr):
         result_tdee = bmr*1.9
     result_tdee = round(result_tdee, 1)
     return result_tdee
+
+def bmr_des(bmi, tdee):
+    result = float()
+    des = ''
+    if bmi == 'thin' or bmi == 'thin2' or bmi == 'thin3':
+        result = tdee+500
+        des = 'หากคุณต้องการเพิ่มน้ำหนักให้รับพลังงานไม่เกิน {} (Kcal)'.format(result)
+        return des
+    if bmi == 'fat' or bmi == 'fat1' or bmi == 'fat2' or bmi == 'fat3':
+        result = tdee-500
+        return 'หากคุณต้องการลดน้ำหนักให้รับพลังงานไม่เกิน {} (Kcal)'.format(result)
+    if bmi == 'good':
+        return 'ร่างกายคุณอยู่ในสภาวะสมดุล คุณควรรักษาสมดุลร่างกายโดยรับพลังตามที่ร่างกายต้องการ'
