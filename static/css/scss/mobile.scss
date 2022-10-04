@@ -9,9 +9,13 @@ body {
 }
 
 .site-body {
+    position: relative;
     background-image: url(https://cdn.artijo.com/img/bmi_project/BG_nt_mb.png);
     background-repeat: no-repeat;
     background-size: cover;
+    body.foods & {
+        background-image: url(https://cdn.artijo.com/img/bmi_project/bg_food_nb.png);
+    }
 }
 p {
     font-size: 14px;
@@ -49,20 +53,6 @@ strong {
 }
 .s-container {
     padding: 0 16px;
-}
-
-.sec-hero {
-    margin: 0 calc(50% - 50vw);
-    text-align: center;
-    .info {
-        max-width: 400px;
-        width: 80%;
-        margin: 0px auto 0px auto;
-        position: relative;
-    }
-    .sec-title {
-        font-size: 28px;
-    }
 }
 
 
