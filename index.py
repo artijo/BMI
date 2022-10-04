@@ -104,8 +104,12 @@ def foodscal():
     
     callimit = session['tdee']-sumcal
     callimit = round(callimit,1)
+    chackcallimit = callimit
+    if chackcallimit < 0:
+        callimit = str(callimit).replace('-','')
+        callimit = float(callimit)
 
-    return render_template("foods.html",menu=foods,c=countfoods,s=sumcal,climit=callimit)
+    return render_template("foods.html",menu=foods,c=countfoods,s=sumcal,climit=callimit,cklimit=chackcallimit)
 
 @app.route('/logout')
 def logout():
