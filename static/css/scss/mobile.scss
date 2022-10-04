@@ -51,7 +51,6 @@ strong {
     padding: 0 16px;
 }
 
-
 .sec-hero {
     margin: 0 calc(50% - 50vw);
     text-align: center;
@@ -74,6 +73,16 @@ strong {
     height: 50px;
 }
 //Add More.
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 125px;
+    img {
+        height: 70px;
+    }
+}
 
 .h-form {
     background-color: #fff;
