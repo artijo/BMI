@@ -15,10 +15,7 @@ def index():
     session['sumcal'] = 0
     session['foods'] = list()
     session['foodscal'] = list()
-    #test
-    session['mylist'] = []
-    
-    #endtest
+
     return render_template('index.html')
 
 @app.route('/result', methods=['GET','POST'])
@@ -67,6 +64,7 @@ def result():
     session['tdee'] = result_tdee
     session['limit_cal'] = limit_cal
     session['bmi_status'] = bmi_status
+    session['callimit'] = result_tdee
     return render_template("result.html",tdee_des=bmi_tdee_des)
 
 @app.route('/foods',methods=['GET','POST'])
@@ -76,6 +74,7 @@ def foodscal():
     foodcal = False
     sumcal = False
     countfoods = False
+    callimit = float()
     foods=data.foods
     if request.method == 'POST':
         session['forlist'] = name
@@ -84,6 +83,9 @@ def foodscal():
 
             session['foods'].append(foods[food]['name'])
             session['foodscal'].append(foods[food]['cal'])
+
+            session['callimit'] = session['callimit'] - foods[food]['cal']
+
         if request.form['submit'] == 'ส่งข้อมูลกำหนดเอง':
             food = request.form['food']
             foodcal = int(request.form['foodcal'])
@@ -91,13 +93,19 @@ def foodscal():
             session['foods'].append(food)
             session['foodscal'].append(foodcal)
 
+        if request.form['submit'] == 'ลบข้อมูลล่าสุด':
+            session['foods'].pop()
+            session['foodscal'].pop()
+
     countfoods = len(session['foods'])
 
     for i in session['foodscal']:
         sumcal = sumcal+i
     
+    callimit = session['tdee']-sumcal
+    callimit = round(callimit,1)
 
-    return render_template("foods.html",menu=foods,c=countfoods,s=sumcal)
+    return render_template("foods.html",menu=foods,c=countfoods,s=sumcal,climit=callimit)
 
 @app.route('/logout')
 def logout():
