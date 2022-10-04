@@ -4,7 +4,6 @@
         <meta charset="utf-8" />
         <title>Healty</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" type="text/css" href="../static/css/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../static/css/mobile.css" />
         <link rel="stylesheet" type="text/css" href="../static/css/desktop.css" media="(min-width: 992px)" />
         <meta name="robots" content="noindex, nofollow">
@@ -23,28 +22,27 @@
                 {% if session['name'] %}
                 <h2 class="title-name">สวัสดีคุณ <strong>{{session['name']}}</strong>!</h2>
                 <button class="newcal"><a href="{{url_for('logout')}}">คำนวณใหม่</a></button>
-
-                <div class="card text-bg-light mb-3 bmi-box">
-                    <div class="card-header bmi-head">BMI</div>
-                    <div class="card-body">
-                      <div class="card-title bmi-ct"><h3>{{session['bmi']}}</h3> อยู่ในเกณฑ์ <h3>{{session.bmi_status['status']}}</h3></div>
-                      <p class="card-text">{{session.bmi_status['des']}}</p>
+                
+                <div class="card-bmi">
+                    <div class="card-head">BMI</div>
+                    <div class="card-detail">
+                        <div class="c-title"><h3>{{session.bmr}}</div>
+                        <div class="c-detail">{{tdee_des}}</div>
                     </div>
-                  </div>
+                </div>
 
-                  <div class="card text-bg-light mb-3 bmi-box">
-                    <div class="card-header bmi-head">BMR & TDEE</div>
-                    <div class="card-body">
-                      <div class="card-title bmi-ct"><h3>{{session.bmr}}</h3> | <h3>{{session.tdee}}</h3> (Kcal)</div>
-                      <p class="card-text">{{tdee_des}}</p>
+                <div class="card-bmi">
+                    <div class="card-head">BMR & TDEE</div>
+                    <div class="card-detail">
+                        <div class="c-title"><h3>{{session['bmi']}}</h3> อยู่ในเกณฑ์ <h3>{{session.bmi_status['status']}}</h3></div>
+                        <div class="c-detail">{{session.bmi_status['des']}}</div>
                     </div>
-                  </div>                                        
+                </div>
                 {% endif %}
                 <a href="{{url_for('foodscal')}}"><button class="calfoot-b">คำนวณพลังงานในอาหาร</button></a>
             </div>
             <div class="space"></div>
         </main>
         <script type="text/javascript" src="../static/script.js"></script>
-        <script type="text/javascript" src="../static/css/bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>

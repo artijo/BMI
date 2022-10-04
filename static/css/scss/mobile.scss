@@ -201,3 +201,36 @@ strong {
     display: block;
     margin: auto;
 }
+
+.card-bmi {
+    display: block;
+    margin: auto;
+    margin-bottom: 25px;
+    background-color: antiquewhite;
+    max-width: 26rem;
+    width: -webkit-fill-available;
+    .card-head {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        font-size: 26px;
+        border-bottom: 1px solid;
+        border-color: #000;
+
+    }
+    .card-detail {
+        position: relative;
+        padding: 0.5rem 1rem;
+        background-color: #fff;
+        .c-title {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+        .c-detail {
+
+        }
+    }
+}
