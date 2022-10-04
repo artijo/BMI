@@ -19,9 +19,7 @@ p {
 }
 
 .site-body {
-    background-image: url(https://cdn.artijo.com/img/bmi_project/bg-desktop2.svg);
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background-image: url(https://cdn.artijo.com/img/bmi_project/BG_nt.png);
 }
 
 .sec-hero {
@@ -34,30 +32,6 @@ p {
     .sec-title {
         font-size: 44px;
     }
-    .input-form {
-        display: flex;
-        flex-flow: column;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-
-        label {
-            font-size: 1rem;
-        }
-        select {
-            width: 75px;
-            height: 45px;
-        }
-        .btn-main {
-            margin-top: 12px;
-            width: max-content;
-        }
-    }
-    .pic {
-        position: absolute;
-        bottom: 0;
-        z-index: -1;
-    }
 }
 
 ._desktop {
@@ -65,13 +39,17 @@ p {
 }
 
 // Add More
+.h-form {
+    width: 600px;
+    margin: auto;
+}
 
 .bmi-box {
     max-width: 26rem;
 }
 
 .input-form {
-    max-width: 401px;
+    max-width: 400px;
     width: -webkit-fill-available;
 }
 
