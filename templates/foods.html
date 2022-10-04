@@ -26,7 +26,7 @@
                     <div class="pickfood-f">
                         <h2 class="title-p">เลือกอาหารที่คุณรับประทาน</h2>
                         <form action="{{url_for('foodscal')}}" method="post">
-                            <select id="select-state" name="food" placeholder="เลือกอาหาร...">
+                            <select id="select-state" name="food" placeholder="เลือกอาหาร..." required>
                                 {% for i in menu %}
                                 <option value="{{i}}">{{menu[i]['name']}}</option>
                                 {% endfor %}
