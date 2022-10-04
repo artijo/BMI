@@ -99,33 +99,6 @@ def foodscal():
 
     return render_template("foods.html",menu=foods,c=countfoods,s=sumcal)
 
-
-@app.route('/test',methods=['GET','POST'])
-def testsm():
-    mmmm = []
-    name = False
-    age = False
-    cars = False
-
-    testinput = False
-
-    # lister = request.args.get("sum")
-    if request.method == 'POST':
-        session['forlist'] = name
-        
-        # name = request.form['name']
-        # age = request.form['age']
-        if request.form['submit'] == 'ส':
-            testinput = request.form['testinput']
-        # cars = request.form['cars']
-        # lister.append(request.form['sum'])
-        if request.form['submit'] == 'สส':
-
-            session['mylist'].append(request.form['sum'])
-
-    # return render_template("test.html",name=name,age=age,cars=cars,bm=session['bmr'],st='good')
-    return render_template("test.html",ttt=testinput)
-
 @app.route('/logout')
 def logout():
     session['name'] = None
