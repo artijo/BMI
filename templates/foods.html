@@ -39,8 +39,8 @@
                             <span>หรือ</span>
                         </div>
                         <form action="{{url_for('foodscal')}}" method="post">
-                            <input type="text" placeholder="ป้อนชื่ออาหาร" name="food">
-                            <input type="number" placeholder="ป้อนพลังงาน (Kcal)" name="foodcal">
+                            <input type="text" placeholder="ป้อนชื่ออาหาร" name="food" required>
+                            <input type="number" placeholder="ป้อนพลังงาน (Kcal)" name="foodcal" required>
                             <input type="submit" name="submit" id="" value="ส่งข้อมูลกำหนดเอง" class="btn-main">
                         </form>
                     </div>
@@ -57,8 +57,16 @@
                         </div>
                         <div class="totol">
                             <p>คุณทานไป {{s}} Kcal</p>
-                            <p>คุณสามารถทานได้อีก...Kcal</p>
+                            {% if climit >= 0 %}
+                            <p>คุณสามารถทานได้อีก {{climit}} Kcal</p>
+                            {% endif %}
+                            {% if climit < 0 %}
+                            <p>คุณสามารถทานเกินแล้ว {{climit}} Kcal</p>
+                            {% endif %}
                         </div>
+                        <form action="{{url_for('foodscal')}}" method="post">
+                            <input type="submit" name="submit" value="ลบข้อมูลล่าสุด">
+                        </form>
                     </div>
                     {% endif %}
                 </div>
