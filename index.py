@@ -9,7 +9,6 @@ app.config['SECRET_KEY'] = 'mykey'
 
 @app.route('/')
 def index():
-
     #session
     session['forlist'] = False
     session['sumcal'] = 0
@@ -32,7 +31,6 @@ def result():
     limit_cal = False
     bmi_status = False
     bmi_tdee_des = False
-    test_data = False
     if request.method == 'POST':
         name = request.form['name']
         weight = request.form['weight']
@@ -55,8 +53,6 @@ def result():
     limit_cal = result_tdee - 500
     limit_cal = round(limit_cal, 1)
     
-
-
     #Session
     session['name'] = name
     session['bmi'] = bmi_result
@@ -104,8 +100,12 @@ def foodscal():
     
     callimit = session['tdee']-sumcal
     callimit = round(callimit,1)
+    chackcallimit = callimit
+    if chackcallimit < 0:
+        callimit = str(callimit).replace('-','')
+        callimit = float(callimit)
 
-    return render_template("foods.html",menu=foods,c=countfoods,s=sumcal,climit=callimit)
+    return render_template("foods.html",menu=foods,c=countfoods,s=sumcal,climit=callimit,cklimit=chackcallimit)
 
 @app.route('/logout')
 def logout():
