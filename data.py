@@ -9,7 +9,7 @@ BMI = {
     },
     "thin":{
         'status':'ผอม',
-        'des':'อยู่ในเกณฑ์เริ่มผอม ควรเริ่มดูแลสุขภาพ adwd'
+        'des':'อยู่ในเกณฑ์เริ่มผอม ควรเริ่มดูแลสุขภาพ adwd kjgoprejgpoerjgpoegjproj'
     },
     "good":{
         'status':'สมส่วน',
