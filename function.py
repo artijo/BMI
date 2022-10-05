@@ -16,21 +16,21 @@ def bmr(weight, height, age, gender):
         return bmr_result
 
 def bmi_status(bmi):
-    if bmi < 16:
+    if bmi < 17.5:
         return 'thin3'
-    if bmi >= 16 and bmi < 18:
+    if bmi >= 17.5 and bmi < 18:
         return 'thin2'
-    if bmi >= 18 and bmi < 18.6:
+    if bmi >= 18 and bmi < 18.5:
         return 'thin'
-    if bmi >= 18.6 and bmi < 26:
+    if bmi >= 18.5 and bmi < 24:
         return 'good'
-    if bmi >= 26 and bmi < 31:
+    if bmi >= 24 and bmi < 25:
         return 'fat'
-    if bmi >= 31 and bmi < 36:
+    if bmi >= 25 and bmi < 29:
         return 'fat1'
-    if bmi >= 36 and bmi < 41:
+    if bmi >= 29 and bmi < 30:
         return 'fat2'
-    if bmi > 40:
+    if bmi >= 30:
         return 'fat3'
 
 def tdee(tdee_input ,bmr):
@@ -60,3 +60,15 @@ def bmr_des(bmi, tdee):
         return 'หากคุณต้องการลดน้ำหนักให้รับพลังงานไม่เกิน {} (Kcal)'.format(result)
     if bmi == 'good':
         return 'ร่างกายคุณอยู่ในสภาวะสมดุล คุณควรรักษาสมดุลร่างกายโดยรับพลังตามที่ร่างกายต้องการ'
+
+def tdee_food(bmi, tdee):
+    result = float()
+    if bmi == 'thin' or bmi == 'thin2' or bmi == 'thin3':
+        result = tdee+500
+        return result
+    if bmi == 'fat' or bmi == 'fat1' or bmi == 'fat2' or bmi == 'fat3':
+        result = tdee-500
+        return result
+    if bmi == 'good':
+        result = tdee
+        return result
