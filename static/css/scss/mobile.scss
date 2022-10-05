@@ -22,7 +22,7 @@ p {
 }
 b,
 strong {
-    font-weight: $heading-font-weight;
+    font-weight: 700;
 }
 .btn-main,
 .btn-alt {
@@ -197,18 +197,16 @@ strong {
     }
 }
 
-.calfoot-b {
-    display: block;
-    margin: auto;
-}
 
 .card-bmi {
     display: block;
     margin: auto;
+    margin-top: 25px;
     margin-bottom: 25px;
     background-color: antiquewhite;
     max-width: 26rem;
     width: -webkit-fill-available;
+    border-radius: 15px;
     .card-head {
         position: relative;
         display: flex;
@@ -228,9 +226,43 @@ strong {
             display: flex;
             gap: 5px;
             justify-content: center;
+            align-items: baseline;
         }
         .c-detail {
 
         }
+    }
+}
+
+.card-bmi-info {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    background-color: #d8f3dc;
+    padding: 16px;
+    border-radius: 0 50px 0 0;
+}
+
+.al {
+    background-color: #ff9b85;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span{
+        padding: 10px;
+    }
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    gap: 10px;
+    a {
+        color: #fff;
     }
 }
