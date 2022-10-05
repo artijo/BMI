@@ -22,6 +22,7 @@
                 </div>
             </header>
             <div class="s-container">
+                <div class="al"><span>**ใช้เป็นเพียง Guideline เบื้องต้นเท่านั้น การคำนวณต่างๆ เป็นเพียงค่าเฉลี่ยของร่างกาย ระบบร่ายกายแต่ละคนมีความแตกต่างกันออกไป</span></div>
                 <div class="gridd">
                     <div class="pickfood-f">
                         <h2 class="title-p">เลือกอาหารที่คุณรับประทาน</h2>
@@ -45,6 +46,7 @@
                     {% if session['foods'] %}
                     <div class="pickfood-f">
                         <h2 class="title-p">อาหารที่คุณรับประทาน</h2>
+                        <p class="show-al">TDEE ของคุณ: {{session.tdee}}, BMI ของคุณอยู่ในเกณฑ์ {{session.bmi_status['status']}} คุณควรรับพลังงานประมาณ {{session.tdee_food}}/วัน เพื่อให้ร่างกายเอยู่ในสภาวะสมดุล</p>
                         <div class="show-fbox">
                             <div class="show-foods">
                             {% for i in range(c) %}
@@ -59,7 +61,7 @@
                             <p>คุณสามารถทานได้อีก {{climit}} Kcal</p>
                             {% endif %}
                             {% if cklimit < 0 %}
-                            <p>คุณสามารถทานเกินแล้ว {{climit}} Kcal</p>
+                            <p style="color:red ;">คุณสามารถทานเกินแล้ว {{climit}} Kcal</p>
                             {% endif %}
                         </div>
                         <form action="{{url_for('foodscal')}}" method="post">

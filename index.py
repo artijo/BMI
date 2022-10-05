@@ -58,6 +58,7 @@ def result():
     session['bmi'] = bmi_result
     session['bmr'] = bmr_result
     session['tdee'] = result_tdee
+    session['tdee_food'] = fn.tdee_food(fn.bmi_status(bmi_result),result_tdee)
     session['limit_cal'] = limit_cal
     session['bmi_status'] = bmi_status
     session['callimit'] = result_tdee
@@ -98,7 +99,7 @@ def foodscal():
     for i in session['foodscal']:
         sumcal = sumcal+i
     
-    callimit = session['tdee']-sumcal
+    callimit = session['tdee_food']-sumcal
     callimit = round(callimit,1)
     chackcallimit = callimit
     if chackcallimit < 0:

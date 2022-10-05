@@ -60,3 +60,15 @@ def bmr_des(bmi, tdee):
         return 'หากคุณต้องการลดน้ำหนักให้รับพลังงานไม่เกิน {} (Kcal)'.format(result)
     if bmi == 'good':
         return 'ร่างกายคุณอยู่ในสภาวะสมดุล คุณควรรักษาสมดุลร่างกายโดยรับพลังตามที่ร่างกายต้องการ'
+
+def tdee_food(bmi, tdee):
+    result = float()
+    if bmi == 'thin' or bmi == 'thin2' or bmi == 'thin3':
+        result = tdee+500
+        return result
+    if bmi == 'fat' or bmi == 'fat1' or bmi == 'fat2' or bmi == 'fat3':
+        result = tdee-500
+        return result
+    if bmi == 'good':
+        result = tdee
+        return result
