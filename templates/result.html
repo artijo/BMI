@@ -25,34 +25,36 @@
                 <div class="al"><span>**ใช้เป็นเพียง Guideline เบื้องต้นเท่านั้น การคำนวณต่างๆ เป็นเพียงค่าเฉลี่ยของร่างกาย ระบบร่ายกายแต่ละคนมีความแตกต่างกันออกไป</span></div>
 
                 <div class="nav">
-                    <button class="btn-alt"><a href="{{url_for('logout')}}">คำนวณใหม่</a></button>
+                    <button class="btn-alt logout"><a href="{{url_for('logout')}}">คำนวณใหม่</a></button>
                     <button class="btn-alt"><a href="{{url_for('foodscal')}}">คำนวณพลังงานในอาหาร</a></button>
                 </div>
-                <div class="card-bmi">
-                    <div class="card-head">BMI</div>
-                    <div class="card-detail">
-                        <div class="c-title"><h3>{{session['bmi']}}</h3> อยู่ในเกณฑ์ <h3>{{session.bmi_status['status']}}</div>
-                        <div class="c-detail">{{session.bmi_status['des']}}</div>
+                <div class="s-dt">
+                    <div class="card-bmi">
+                        <div class="card-head">BMI</div>
+                        <div class="card-detail">
+                            <div class="c-title"><h3>{{session['bmi']}}</h3> อยู่ในเกณฑ์ <h3>{{session.bmi_status['status']}}</div>
+                            <div class="c-detail">{{session.bmi_status['des']}}</div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card-bmi-info">
-                    <div class="card-info-head"><h2>What is BMI?</h2></div>
-                    <div class="c-info-detail"><h3>Body Mass Index (BMI)</h3> <p>หรือที่เรียกว่า “ดัชนีมวลกาย” เป็นการแบ่งวัดระดับความอ้วนแบบง่ายๆ โดยดูจากน้ำหนักและส่วนสูง</p></div>
-                </div>
-
-                <div class="card-bmi">
-                    <div class="card-head">BMR & TDEE</div>
-                    <div class="card-detail">
-                        <div class="c-title"><h3>{{session['bmr']}} | {{session.tdee}}</h3></div>
-                        <div class="c-detail">{{tdee_des}}</div>
+                    <div class="card-bmi-info">
+                        <div class="card-info-head"><h2>What is BMI?</h2></div>
+                        <div class="c-info-detail"><h3>Body Mass Index (BMI)</h3> <p>หรือที่เรียกว่า “ดัชนีมวลกาย” เป็นการแบ่งวัดระดับความอ้วนแบบง่ายๆ โดยดูจากน้ำหนักและส่วนสูง</p></div>
                     </div>
-                </div>
 
-                <div class="card-bmi-info">
-                    <div class="card-info-head"><h2><strong>What is BMR & TDEE?</strong></h2></div>
-                    <div class="c-info-detail"><h3>Basal Metabolic Rate (BMR)</h3><p>คือ อัตราการความต้องการเผาผลาญของร่างกายในชีวิตประจำวัน หรือจำนวนแคลอรี่ขั้นต่ำที่ต้องการใช้ในชีวิตแต่ละวัน</p></div>
-                    <div class="c-info-detail"><h3>Total Daily Energy Expenditure (TDEE)</h3> <p>คือการใช้พลังงานทั้งหมดในแต่ละวันที่คุณเผาผลาญตลอดทั้งวันโดยพิจารณาจากน้ำหนัก ส่วนสูง อายุ และระดับกิจกรรมของคุณ</p></div>
+                    <div class="card-bmi">
+                        <div class="card-head">BMR & TDEE</div>
+                        <div class="card-detail">
+                            <div class="c-title"><h3>{{session['bmr']}} | {{session.tdee}}</h3></div>
+                            <div class="c-detail">{{tdee_des}}</div>
+                        </div>
+                    </div>
+
+                    <div class="card-bmi-info">
+                        <div class="card-info-head"><h2><strong>What is BMR & TDEE?</strong></h2></div>
+                        <div class="c-info-detail"><h3>Basal Metabolic Rate (BMR)</h3><p>คือ อัตราการความต้องการเผาผลาญของร่างกายในชีวิตประจำวัน หรือจำนวนแคลอรี่ขั้นต่ำที่ต้องการใช้ในชีวิตแต่ละวัน</p></div>
+                        <div class="c-info-detail"><h3>Total Daily Energy Expenditure (TDEE)</h3> <p>คือการใช้พลังงานทั้งหมดในแต่ละวันที่คุณเผาผลาญตลอดทั้งวันโดยพิจารณาจากน้ำหนัก ส่วนสูง อายุ และระดับกิจกรรมของคุณ</p></div>
+                    </div>
                 </div>
                 {% endif %}
                 

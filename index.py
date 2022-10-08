@@ -9,28 +9,11 @@ app.config['SECRET_KEY'] = 'mykey'
 
 @app.route('/')
 def index():
-    #session
-    session['forlist'] = False
-    session['sumcal'] = 0
-    session['foods'] = list()
-    session['foodscal'] = list()
-
     return render_template('index.html')
 
 @app.route('/result', methods=['GET','POST'])
 def result():
-    weight = False
-    height = False
-    gender = False
-    bmi_result = False
-    age = False
-    bmr_result = False
-    name = False
-    tdee = False
-    result_tdee = False
-    limit_cal = False
-    bmi_status = False
-    bmi_tdee_des = False
+    weight = height = gender = bmi_result = age = bmr_result = name = tdee = result_tdee = limit_cal = bmi_status = bmi_tdee_des = False
     if request.method == 'POST':
         name = request.form['name']
         weight = request.form['weight']
@@ -62,6 +45,11 @@ def result():
     session['limit_cal'] = limit_cal
     session['bmi_status'] = bmi_status
     session['callimit'] = result_tdee
+    #session สำหรับทำงานหน้า Foods
+    session['forlist'] = False
+    session['sumcal'] = 0
+    session['foods'] = list()
+    session['foodscal'] = list()
     return render_template("result.html",tdee_des=bmi_tdee_des)
 
 @app.route('/foods',methods=['GET','POST'])
@@ -110,7 +98,7 @@ def foodscal():
 
 @app.route('/logout')
 def logout():
-    session['name'] = None
+    session['name'] = session['bmi'] = session['bmr'] = session['tdee'] = session['tdee_food'] = session['limit_cal'] = session['bmi_status'] = session['callimit'] = session['forlist'] = session['sumcal'] = session['foods'] = session['foodscal'] = None
     return redirect('/')
 
 if __name__ == "__main__":
