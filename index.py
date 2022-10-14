@@ -52,6 +52,7 @@ def result():
             session['bmr'] = bmr_result
             session['tdee'] = result_tdee
             session['tdee_food'] = fn.tdee_food(fn.bmi_status(bmi_result),result_tdee)
+            session['tdee_food'] = round(session['tdee_food'],1)
             session['limit_cal'] = limit_cal
             session['bmi_status'] = bmi_status
             session['callimit'] = result_tdee
@@ -97,6 +98,7 @@ def foodscal():
     for i in session['foodscal']:
         sumcal = sumcal+i
     
+    session['sumcal']=sumcal
     callimit = session['tdee_food']-sumcal
     callimit = round(callimit,1)
     chackcallimit = callimit
@@ -105,6 +107,23 @@ def foodscal():
         callimit = float(callimit)
 
     return render_template("foods.html",menu=foods,c=countfoods,s=sumcal,climit=callimit,cklimit=chackcallimit)
+
+@app.route('/conclusion',methods=['GET','POST'])
+def advise():
+
+    bmi=session['bmi']
+
+    limit=int(session['tdee_food'])
+    sum=session['sumcal']
+    
+    consult_de=fn.consult_des(bmi)
+    consult_de=data.CON[consult_de]
+    
+    adv=fn.consult(sum,limit)
+    adv=data.AD[adv]
+    callimit=session['callimit']
+
+    return render_template("conclusion.html",climit=callimit,t=sum,adv=adv,lim=limit,de=consult_de)
 
 @app.route('/logout')
 def logout():

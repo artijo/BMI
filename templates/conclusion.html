@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Healty - คำนวณการรับพลังงานจากอาหาร</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="../static/css/mobile.css" />
+        <link rel="stylesheet" type="text/css" href="../static/css/desktop.css" media="(min-width: 992px)" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+        <meta name="robots" content="noindex, nofollow">
+    </head>
+    <body>
+        <main class="site-body">
+            <header class="header">
+                <div class="s-container">
+                    <div class="logo">
+                        <img src="../static/img/logo.svg" alt="logo">                            
+                    </div>
+                </div>
+            </header>
+            <div class="s-container">
+                {% if session['name'] %}
+                <h2 class="title-name">สรุปผลค่า BMI และการกินของคุณใน 1 วัน! <strong>{{session['name']}}</strong>!</h2>
+                <button class="btn-alt logout food"><a href="{{url_for('logout')}}">กลับหน้าแรก</a></button>
+                <div class="al"><span>**ใช้เป็นเพียง Guideline เบื้องต้นเท่านั้น การคำนวณต่างๆ เป็นเพียงค่าเฉลี่ยของร่างกาย ระบบร่ายกายแต่ละคนมีความแตกต่างกันออกไป</span></div>
+                <div class="s-dt">
+                    <div class="card-bmi">
+                        <div class="card-head">ผลสรุป</div>
+                        <div class="card-detail">
+                            <div class="c-title"><p1>ตอนนี้ค่าBMIของคุณอยู่ในเกณฑ์</p1><h3>{{session.bmi_status['status']}}</h3></div>
+                    
+                        <div class="card-head">แคลอรี่ที่คุณได้รับในวันนี้</div>
+                            <div class="c-title"><h4>{{session['sumcal']}} Kcal | limit {{lim}}</h4></div>
+                            <p>{{adv['de']}}</p>
+                        <div class ="card-detail"><span>{{de['de']}}</span></div>
+                        </div>
+                    </div>
+                {% endif %}
+                
+
+        </main>
+        <script type="text/javascript" src="../static/script.js"></script>
+    </body>
+</html>

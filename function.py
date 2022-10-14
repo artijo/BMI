@@ -53,11 +53,11 @@ def bmr_des(bmi, tdee):
     des = ''
     if bmi == 'thin' or bmi == 'thin2' or bmi == 'thin3':
         result = tdee+500
-        des = 'หากคุณต้องการเพิ่มน้ำหนักให้รับพลังงานไม่เกิน {} (Kcal)'.format(result)
+        des = 'หากคุณต้องการเพิ่มน้ำหนักให้รับพลังงานไม่เกิน {:.1f} (Kcal)'.format(result)
         return des
     if bmi == 'fat' or bmi == 'fat1' or bmi == 'fat2' or bmi == 'fat3':
         result = tdee-500
-        return 'หากคุณต้องการลดน้ำหนักให้รับพลังงานไม่เกิน {} (Kcal)'.format(result)
+        return 'หากคุณต้องการลดน้ำหนักให้รับพลังงานไม่เกิน {:.1f} (Kcal)'.format(result)
     if bmi == 'good':
         return 'ร่างกายคุณอยู่ในสภาวะสมดุล คุณควรรักษาสมดุลร่างกายโดยรับพลังตามที่ร่างกายต้องการ'
 
@@ -72,3 +72,23 @@ def tdee_food(bmi, tdee):
     if bmi == 'good':
         result = tdee
         return result
+
+def consult(sum,limit):
+    if sum < 1200:
+        return 'rec2'
+    if sum > limit:
+        return 'rec3'
+    else:
+        return 'rec'
+
+def consult_des(bmi):
+    if bmi >= 17.5 and bmi <18.5:
+        return 't'
+    if bmi < 17.5:
+        return 't-danger'
+    if bmi >= 18.5 and bmi < 24:
+        return 'g'
+    if bmi >= 24 and bmi < 30:
+        return 'f'
+    if bmi >= 30:
+        return 'f-danger'
