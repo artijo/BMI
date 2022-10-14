@@ -110,12 +110,11 @@ def foodscal():
 
 @app.route('/conclusion',methods=['GET','POST'])
 def advise():
-
     bmi=session['bmi']
-
     limit=int(session['tdee_food'])
     sum=session['sumcal']
-    
+    if sum == False:
+        sum = 0
     consult_de=fn.consult_des(bmi)
     consult_de=data.CON[consult_de]
     
