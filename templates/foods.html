@@ -22,8 +22,10 @@
                 </div>
             </header>
             <div class="s-container">
-                <button class="btn-alt logout food"><a href="{{url_for('logout')}}">กลับหน้าแรก</a></button>
-                <button class="btn-alt advise"><a href="{{url_for('advise')}}">ไปยังหน้าคำแนะนำ</a></button>
+                <div class="nav">
+                    <a href="{{url_for('logout')}}"><button class="btn-alt logout food">กลับหน้าแรก</button></a>
+                    <a href="{{url_for('advise')}}"><button class="btn-alt advise">ไปยังหน้าคำแนะนำ</button></a>
+                </div>
                 <div class="al"><span>**ใช้เป็นเพียง Guideline เบื้องต้นเท่านั้น การคำนวณต่างๆ เป็นเพียงค่าเฉลี่ยของร่างกาย ระบบร่ายกายแต่ละคนมีความแตกต่างกันออกไป</span></div>
                 <div class="gridd">
                     <div class="pickfood-f">
