@@ -73,13 +73,13 @@ def tdee_food(bmi, tdee):
         result = tdee
         return result
 
-def consult(sum,limit):
-    if sum < 1200:
-        return 'rec2'
+def consult(sum,limit): 
+    if sum < limit-500:
+        return 'วันนี้คุณรับประทานอาหารต่ำกว่ากำหนด ถ้าหากคุณต้องการเพิ่มน้ำหนักควรรับประทานอาหารให้อยู่ในช่วงแคลอรี่ของคุณและต้องมากกว่า {} Kcal และไม่ควรมากจนเกินไป'.format(limit)
     if sum > limit:
-        return 'rec3'
-    else:
-        return 'rec'
+        return 'วันนี้คุณรับประทานอาหารเกินปริมาณแคลอรี่ที่ต้องการต่อวันแล้ว (แต่ถ้าหากว่าคุณต้องการลดน้ำหนัก คุณควรรับประทานให้อยู่ในช่วง {} Kcal - {} Kcal'.format(limit-500,limit)
+    if sum <= limit and sum >= limit-500:
+        return 'วันนี้คุณได้รับปริมาณพลังงานอยู่ในช่วงที่เหมาะสมต่อร่างกายแล้ว'
 
 def consult_des(bmi):
     if bmi >= 17.5 and bmi <18.5:
