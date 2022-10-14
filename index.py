@@ -9,68 +9,66 @@ app.config['SECRET_KEY'] = 'mykey'
 
 @app.route('/')
 def index():
-    #session
-    session['forlist'] = False
-    session['sumcal'] = 0
-    session['foods'] = list()
-    session['foodscal'] = list()
-
     return render_template('index.html')
 
 @app.route('/result', methods=['GET','POST'])
 def result():
-    weight = False
-    height = False
-    gender = False
-    bmi_result = False
-    age = False
-    bmr_result = False
-    name = False
-    tdee = False
-    result_tdee = False
-    limit_cal = False
-    bmi_status = False
-    bmi_tdee_des = False
-    if request.method == 'POST':
-        name = request.form['name']
-        weight = request.form['weight']
-        height = request.form['height']
-        age = request.form['age']
-        gender = request.form['gender']
-        tdee = request.form['tdee']
-    #BMI Calulator
-    bmi_result = fn.bmi(weight, height)
-    #BMI Status
-    bmi_status = fn.bmi_status(bmi_result)
-    bmi_status = data.BMI[bmi_status]
-    #BMR Calulator
-    bmr_result = fn.bmr(weight, height, age, gender)
-    #TDEE
-    result_tdee = fn.tdee(tdee, bmr_result)
-    bmi_tdee_des = fn.bmr_des(fn.bmi_status(bmi_result),result_tdee)
+    weight = height = gender = bmi_result = age = bmr_result = name = tdee = result_tdee = limit_cal = bmi_status = bmi_tdee_des = False
+    try:
+        if request.method == 'POST':
+            name = request.form['name']
+            weight = request.form['weight']
+            height = request.form['height']
+            age = request.form['age']
+            gender = request.form['gender']
+            tdee = request.form['tdee']
 
-    #หากต้องการลดน้ำหนัก
-    limit_cal = result_tdee - 500
-    limit_cal = round(limit_cal, 1)
-    
-    #Session
-    session['name'] = name
-    session['bmi'] = bmi_result
-    session['bmr'] = bmr_result
-    session['tdee'] = result_tdee
-    session['tdee_food'] = fn.tdee_food(fn.bmi_status(bmi_result),result_tdee)
-    session['limit_cal'] = limit_cal
-    session['bmi_status'] = bmi_status
-    session['callimit'] = result_tdee
-    return render_template("result.html",tdee_des=bmi_tdee_des)
+    except:
+        return redirect('/')
+
+    else:
+        try:
+            #BMI Calulator
+            bmi_result = fn.bmi(weight, height)
+            #BMI Status
+            bmi_status = fn.bmi_status(bmi_result)
+            bmi_status = data.BMI[bmi_status]
+            #BMR Calulator
+            bmr_result = fn.bmr(weight, height, age, gender)
+            #TDEE
+            result_tdee = fn.tdee(tdee, bmr_result)
+            bmi_tdee_des = fn.bmr_des(fn.bmi_status(bmi_result),result_tdee)
+
+            #หากต้องการลดน้ำหนัก
+            limit_cal = result_tdee - 500
+            limit_cal = round(limit_cal, 1)
+        except ZeroDivisionError:
+            return redirect('/')
+
+        else:
+            #Session
+            session['name'] = name
+            session['bmi'] = bmi_result
+            session['bmr'] = bmr_result
+            session['tdee'] = result_tdee
+            session['tdee_food'] = fn.tdee_food(fn.bmi_status(bmi_result),result_tdee)
+            session['limit_cal'] = limit_cal
+            session['bmi_status'] = bmi_status
+            session['callimit'] = result_tdee
+            #session สำหรับทำงานหน้า Foods
+            session['forlist'] = False
+            session['sumcal'] = 0
+            session['foods'] = list()
+            session['foodscal'] = list()
+            return render_template("result.html",tdee_des=bmi_tdee_des)
 
 @app.route('/foods',methods=['GET','POST'])
 def foodscal():
-    name=False
-    food = False
-    foodcal = False
-    sumcal = False
-    countfoods = False
+    name = food = foodcal = sumcal = countfoods = False
+
+    if not session['name']:
+        return redirect('/')
+
     callimit = float()
     foods=data.foods
     if request.method == 'POST':
@@ -110,7 +108,7 @@ def foodscal():
 
 @app.route('/logout')
 def logout():
-    session['name'] = None
+    session['name'] = session['bmi'] = session['bmr'] = session['tdee'] = session['tdee_food'] = session['limit_cal'] = session['bmi_status'] = session['callimit'] = session['forlist'] = session['sumcal'] = session['foods'] = session['foodscal'] = None
     return redirect('/')
 
 if __name__ == "__main__":

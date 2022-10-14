@@ -50,6 +50,18 @@ strong {
 .btn-alt {
     background: rgb(32, 142, 112);
     background: linear-gradient(145deg, #925b08 0%, $brown 100%);
+    &.logout {
+        background: #c9184a;
+        &.food {
+            display: block;
+            margin: auto;
+            margin-bottom: 10px;
+            a {
+                color: #fff;
+            }
+            
+        }
+    }
 }
 .s-container {
     padding: 0 16px;
@@ -145,6 +157,7 @@ strong {
     margin: auto;
     padding: 20px;
     border-radius: 10px;
+    margin-top: 16px;
     margin-bottom: 10px;
     .show-al {
         font-size: 12px;
@@ -224,7 +237,7 @@ strong {
     .card-detail {
         position: relative;
         padding: 0.5rem 1rem;
-        background-color: #fff;
+        background-color: #e8e8e8;
         .c-title {
             display: flex;
             gap: 5px;
@@ -246,7 +259,8 @@ strong {
     margin: auto;
     background-color: #d8f3dc;
     padding: 16px;
-    border-radius: 0 50px 0 0;
+    border: 1px solid;
+    border-color: #95d5b2;
 }
 
 .al {
@@ -268,4 +282,10 @@ strong {
     a {
         color: #fff;
     }
+}
+.s-dt {
+    background-color: #fff;
+    padding: 16px;
+    margin-top: 16px;
+    border-radius: 10px;
 }
