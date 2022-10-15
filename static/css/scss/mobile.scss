@@ -265,19 +265,6 @@ strong {
     }
 }
 
-.card-bmi-info {
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: auto;
-    background-color: #d8f3dc;
-    padding: 16px;
-    border: 1px solid;
-    border-color: #95d5b2;
-}
-
 .al {
     background-color: #ff9b85;
     display: flex;
@@ -303,3 +290,48 @@ strong {
     margin-top: 16px;
     border-radius: 10px;
 }
+details {
+    width: -webkit-fill-available;
+    margin: 0 auto ;
+    background: #d8f3dc;
+    margin-bottom: .5rem;
+    box-shadow: 0 .1rem 1rem -.5rem rgba(0,0,0,.4);
+    border-radius: 5px;
+    overflow: hidden;
+    summary {
+        padding: 1rem;
+        display: block;
+        background: #184e77;
+        color: #fff;
+        padding-left: 2.2rem;
+        position: relative;
+        cursor: pointer;
+        &::before{
+            content: '';
+            border-width: .4rem;
+            border-style: solid;
+            border-color: transparent transparent transparent #fff;
+            position: absolute;
+            top: 1.3rem;
+            left: 1rem;
+            transform: rotate(0);
+            transform-origin: .2rem 50%;
+            transition: .25s transform ease;
+        }
+      }
+      .cot {
+        margin: 16px;
+      }
+  }
+  /* THE MAGIC 🧙‍♀️ */
+  details[open] > summary:before {
+    transform: rotate(90deg);
+  }
+  
+  details summary::-webkit-details-marker {
+    display:none;
+  }
+  details > ul {
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+  }
