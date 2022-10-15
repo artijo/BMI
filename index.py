@@ -14,61 +14,51 @@ def index():
 @app.route('/result', methods=['GET','POST'])
 def result():
     weight = height = gender = bmi_result = age = bmr_result = name = tdee = result_tdee = limit_cal = bmi_status = bmi_tdee_des = False
-    try:
-        if request.method == 'POST':
-            name = request.form['name']
-            weight = request.form['weight']
-            height = request.form['height']
-            age = request.form['age']
-            gender = request.form['gender']
-            tdee = request.form['tdee']
+    if request.method == 'POST':
+        name = request.form['name']
+        weight = request.form['weight']
+        height = request.form['height']
+        age = request.form['age']
+        gender = request.form['gender']
+        tdee = request.form['tdee']
+    #BMI Calulator
+    bmi_result = fn.bmi(weight, height)
+    #BMI Status
+    bmi_status = fn.bmi_status(bmi_result)
+    bmi_status = data.BMI[bmi_status]
+    #BMR Calulator
+    bmr_result = fn.bmr(weight, height, age, gender)
+    #TDEE
+    result_tdee = fn.tdee(tdee, bmr_result)
+    bmi_tdee_des = fn.bmr_des(fn.bmi_status(bmi_result),result_tdee)
 
-    except:
-        return redirect('/')
-
-    else:
-        try:
-            #BMI Calulator
-            bmi_result = fn.bmi(weight, height)
-            #BMI Status
-            bmi_status = fn.bmi_status(bmi_result)
-            bmi_status = data.BMI[bmi_status]
-            #BMR Calulator
-            bmr_result = fn.bmr(weight, height, age, gender)
-            #TDEE
-            result_tdee = fn.tdee(tdee, bmr_result)
-            bmi_tdee_des = fn.bmr_des(fn.bmi_status(bmi_result),result_tdee)
-
-            #หากต้องการลดน้ำหนัก
-            limit_cal = result_tdee - 500
-            limit_cal = round(limit_cal, 1)
-        except ZeroDivisionError:
-            return redirect('/')
-
-        else:
-            #Session
-            session['name'] = name
-            session['bmi'] = bmi_result
-            session['bmr'] = bmr_result
-            session['tdee'] = result_tdee
-            session['tdee_food'] = fn.tdee_food(fn.bmi_status(bmi_result),result_tdee)
-            session['limit_cal'] = limit_cal
-            session['bmi_status'] = bmi_status
-            session['callimit'] = result_tdee
-            #session สำหรับทำงานหน้า Foods
-            session['forlist'] = False
-            session['sumcal'] = 0
-            session['foods'] = list()
-            session['foodscal'] = list()
-            return render_template("result.html",tdee_des=bmi_tdee_des)
+    #หากต้องการลดน้ำหนัก
+    limit_cal = result_tdee - 500
+    limit_cal = round(limit_cal, 1)
+    
+    #Session
+    session['name'] = name
+    session['bmi'] = bmi_result
+    session['bmr'] = bmr_result
+    session['tdee'] = result_tdee
+    session['tdee_food'] = fn.tdee_food(fn.bmi_status(bmi_result),result_tdee)
+    session['limit_cal'] = limit_cal
+    session['bmi_status'] = bmi_status
+    session['callimit'] = result_tdee
+    #session สำหรับทำงานหน้า Foods
+    session['forlist'] = False
+    session['sumcal'] = 0
+    session['foods'] = list()
+    session['foodscal'] = list()
+    return render_template("result.html",tdee_des=bmi_tdee_des)
 
 @app.route('/foods',methods=['GET','POST'])
 def foodscal():
-    name = food = foodcal = sumcal = countfoods = False
-
-    if not session['name']:
-        return redirect('/')
-
+    name=False
+    food = False
+    foodcal = False
+    sumcal = False
+    countfoods = False
     callimit = float()
     foods=data.foods
     if request.method == 'POST':
@@ -97,6 +87,7 @@ def foodscal():
     for i in session['foodscal']:
         sumcal = sumcal+i
     
+    session['sumcal']=sumcal
     callimit = session['tdee_food']-sumcal
     callimit = round(callimit,1)
     chackcallimit = callimit
@@ -106,9 +97,26 @@ def foodscal():
 
     return render_template("foods.html",menu=foods,c=countfoods,s=sumcal,climit=callimit,cklimit=chackcallimit)
 
+@app.route('/conclusion',methods=['GET','POST'])
+def advise():
+    bmi=session['bmi']
+    limit=(session['tdee_food'])
+    sum=session['sumcal']
+    if sum == False:
+        sum = 0
+    consult_de=fn.consult_des(bmi)
+    consult_de=data.CON[consult_de]
+    
+    adv=fn.consult(sum,limit,bmi)
+
+    session['consult'] = consult_de
+    session['advice'] = adv
+
+    return render_template("conclusion.html",t=sum,adv=adv,lim=limit,de=consult_de)
+
 @app.route('/logout')
 def logout():
-    session['name'] = session['bmi'] = session['bmr'] = session['tdee'] = session['tdee_food'] = session['limit_cal'] = session['bmi_status'] = session['callimit'] = session['forlist'] = session['sumcal'] = session['foods'] = session['foodscal'] = None
+    session['name'] = session['bmi'] = session['bmr'] = session['tdee'] = session['tdee_food'] = session['limit_cal'] = session['bmi_status'] = session['callimit'] = session['forlist'] = session['sumcal'] = session['foods'] = session['foodscal'] = session['consult'] = session['advice'] = None
     return redirect('/')
 
 if __name__ == "__main__":

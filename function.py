@@ -53,11 +53,11 @@ def bmr_des(bmi, tdee):
     des = ''
     if bmi == 'thin' or bmi == 'thin2' or bmi == 'thin3':
         result = tdee+500
-        des = 'หากคุณต้องการเพิ่มน้ำหนักให้รับพลังงานไม่เกิน {} (Kcal)'.format(result)
+        des = 'หากคุณต้องการเพิ่มน้ำหนักให้รับพลังงานไม่เกิน {:.1f} (Kcal)'.format(result)
         return des
     if bmi == 'fat' or bmi == 'fat1' or bmi == 'fat2' or bmi == 'fat3':
         result = tdee-500
-        return 'หากคุณต้องการลดน้ำหนักให้รับพลังงานไม่เกิน {} (Kcal)'.format(result)
+        return 'หากคุณต้องการลดน้ำหนักให้รับพลังงานไม่เกิน {:.1f} (Kcal)'.format(result)
     if bmi == 'good':
         return 'ร่างกายคุณอยู่ในสภาวะสมดุล คุณควรรักษาสมดุลร่างกายโดยรับพลังตามที่ร่างกายต้องการ'
 
@@ -72,3 +72,26 @@ def tdee_food(bmi, tdee):
     if bmi == 'good':
         result = tdee
         return result
+
+def consult(sum,limit,bmi): 
+    if sum < limit-500:
+        return 'วันนี้คุณรับประทานอาหารต่ำกว่ากำหนด ถ้าหากคุณต้องการเพิ่มน้ำหนักควรรับประทานอาหารให้อยู่ในช่วงแคลอรี่ของคุณและต้องมากกว่า {:.1f} Kcal และไม่ควรมากจนเกินไป'.format(limit)
+    if sum > limit:
+        if bmi >= 18.5 and bmi < 24 and sum > limit:
+            return 'วันนี้คุณรับประทานอาหารเกินปริมาณแคลอรี่ที่ต้องการต่อวันแล้ว (แต่ถ้าหากว่าคุณต้องการลดน้ำหนัก คุณควรรับประทานให้อยู่ในช่วง {:.1f} Kcal - {:.1f} Kcal'.format(limit-250,limit+250)
+        else:
+            return 'วันนี้คุณรับประทานอาหารเกินปริมาณแคลอรี่ที่ต้องการต่อวันแล้ว (แต่ถ้าหากว่าคุณต้องการลดน้ำหนัก คุณควรรับประทานให้อยู่ในช่วง {:.1f} Kcal - {:.1f} Kcal'.format(limit-500,limit)
+    if sum <= limit and sum >= limit-500:
+        return 'วันนี้คุณได้รับปริมาณพลังงานอยู่ในช่วงที่เหมาะสมต่อร่างกายแล้ว'
+
+def consult_des(bmi):
+    if bmi >= 17.5 and bmi <18.5:
+        return 't'
+    if bmi < 17.5:
+        return 't-danger'
+    if bmi >= 18.5 and bmi < 24:
+        return 'g'
+    if bmi >= 24 and bmi < 30:
+        return 'f'
+    if bmi >= 30:
+        return 'f-danger'

@@ -15,6 +15,14 @@ body {
     background-size: cover;
     body.foods & {
         background-image: url(https://cdn.artijo.com/img/bmi_project/bg_food_nb.png);
+        min-height: 100vh;
+    }
+    body.conclusion & {
+        background-image: url(https://cdn.artijo.com/img/bmi_project/bg_food_nb.png);
+        min-height: 100vh;
+    }
+    body.result & {
+        background-image: url(https://cdn.artijo.com/img/bmi_project/rs-bg.svg);
     }
 }
 p {
@@ -91,6 +99,9 @@ strong {
     border-radius: 10px;
     padding: 30px;
     opacity: 0.7;
+    font-family: $heading-font;
+    font-weight: $heading-font-weight;
+    line-height: $heading-line-height;
     &:hover {
         opacity: 1;
     }
@@ -110,6 +121,7 @@ strong {
             height: 45px;
         }
         .btn-main {
+            margin: auto;
             margin-top: 12px;
             width: max-content;
         }
@@ -172,6 +184,9 @@ strong {
         justify-content: center;
         flex-flow: column;
         gap: 10px;
+        font-family: $heading-font;
+        font-weight: $heading-font-weight;
+        line-height: $heading-line-height;
         select {
             min-width: 220px;
         }
@@ -219,7 +234,7 @@ strong {
     margin: auto;
     margin-top: 25px;
     margin-bottom: 25px;
-    background-color: antiquewhite;
+    background-color: #bee9e8;
     max-width: 26rem;
     width: -webkit-fill-available;
     border-radius: 15px;
@@ -229,7 +244,7 @@ strong {
         justify-content: center;
         align-items: center;
         padding: 0.5rem 1rem;
-        font-size: 26px;
+        font-size: 20px;
         border-bottom: 1px solid;
         border-color: #000;
 
@@ -237,7 +252,7 @@ strong {
     .card-detail {
         position: relative;
         padding: 0.5rem 1rem;
-        background-color: #e8e8e8;
+        background-color: #fff;
         .c-title {
             display: flex;
             gap: 5px;
@@ -276,7 +291,6 @@ strong {
 .nav {
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-top: 16px;
     gap: 10px;
     a {

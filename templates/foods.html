@@ -9,9 +9,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+        <script src="../static/jquery.js"></script>
         <meta name="robots" content="noindex, nofollow">
     </head>
-
     <body class="foods">
         <main class="site-body">
             <header class="header">
@@ -22,7 +22,10 @@
                 </div>
             </header>
             <div class="s-container">
-                <button class="btn-alt logout food"><a href="{{url_for('logout')}}">กลับหน้าแรก</a></button>
+                <div class="nav">
+                    <a href="{{url_for('logout')}}"><button class="btn-alt logout food">กลับหน้าแรก</button></a>
+                    <a href="{{url_for('advise')}}"><button class="btn-alt advise">ไปยังหน้าคำแนะนำ</button></a>
+                </div>
                 <div class="al"><span>**ใช้เป็นเพียง Guideline เบื้องต้นเท่านั้น การคำนวณต่างๆ เป็นเพียงค่าเฉลี่ยของร่างกาย ระบบร่ายกายแต่ละคนมีความแตกต่างกันออกไป</span></div>
                 <div class="gridd">
                     <div class="pickfood-f">
@@ -62,7 +65,7 @@
                             <p>คุณสามารถทานได้อีก {{climit}} Kcal</p>
                             {% endif %}
                             {% if cklimit < 0 %}
-                            <p style="color:red ;">คุณสามารถทานเกินแล้ว {{climit}} Kcal</p>
+                            <p style="color:red ;">คุณทานอาหารเกินกำหนดแล้ว {{climit}} Kcal</p>
                             {% endif %}
                         </div>
                         <form action="{{url_for('foodscal')}}" method="post">
