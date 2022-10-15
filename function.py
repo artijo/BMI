@@ -1,10 +1,10 @@
-def bmi(weight, height):
+def bmi(weight, height): #สำหรับคำนวณหาค่า bmi
     bmi_result = False
     bmi_result = float(weight)/(float(height)/100)**2
     bmi_result = round(bmi_result, 2)
     return bmi_result
 
-def bmr(weight, height, age, gender):
+def bmr(weight, height, age, gender): #สำหรับคำนวณหาค่า bmr
     bmr_result = False
     if gender == 'men':
         bmr_result = 66 + (13.7*float(weight)) + (5*float(height)) - (6.8*int(age))
@@ -15,7 +15,7 @@ def bmr(weight, height, age, gender):
         bmr_result = round(bmr_result, 1)
         return bmr_result
 
-def bmi_status(bmi):
+def bmi_status(bmi): #สำหรับเช็คเกณฑ์ bmi เพื่อนำไปเทียบกับข้อมูลใน Data
     if bmi < 17.5:
         return 'thin3'
     if bmi >= 17.5 and bmi < 18:
@@ -33,7 +33,7 @@ def bmi_status(bmi):
     if bmi >= 30:
         return 'fat3'
 
-def tdee(tdee_input ,bmr):
+def tdee(tdee_input ,bmr): #สำหรับคำนวณหาค่า tdee
     result_tdee = False
     if tdee_input == 'nowo':
         result_tdee = bmr*1.2
@@ -48,7 +48,7 @@ def tdee(tdee_input ,bmr):
     result_tdee = round(result_tdee, 1)
     return result_tdee
 
-def bmr_des(bmi, tdee):
+def bmr_des(bmi, tdee): #แสดงข้อความการใช้คำแนะนำ bmr & tdee (คำแนะนำเพิ่มหรือลดน้ำหนัก)
     result = float()
     des = ''
     if bmi == 'thin' or bmi == 'thin2' or bmi == 'thin3':
@@ -61,7 +61,7 @@ def bmr_des(bmi, tdee):
     if bmi == 'good':
         return 'ร่างกายคุณอยู่ในสภาวะสมดุล คุณควรรักษาสมดุลร่างกายโดยรับพลังตามที่ร่างกายต้องการ'
 
-def tdee_food(bmi, tdee):
+def tdee_food(bmi, tdee): #แสดงข้อความการใช้คำแนะนำในการลดหรือเพิ่มการรับพลังงาน ส่งค่า tdee ที่ +- 500 หรือ = ออกไปทำงาน
     result = float()
     if bmi == 'thin' or bmi == 'thin2' or bmi == 'thin3':
         result = tdee+500
@@ -73,7 +73,7 @@ def tdee_food(bmi, tdee):
         result = tdee
         return result
 
-def consult(sum,limit,bmi): 
+def consult(sum,limit,bmi): #ส่งข้อความสรุปผล sum=ผลรวมของการรับประทานอาหาร limit=ค่าพลังงานที่สามารถรับประทานได้
     if sum < limit-500:
         return 'วันนี้คุณรับประทานอาหารต่ำกว่ากำหนด ถ้าหากคุณต้องการเพิ่มน้ำหนักควรรับประทานอาหารให้อยู่ในช่วงแคลอรี่ของคุณและต้องมากกว่า {:.1f} Kcal และไม่ควรมากจนเกินไป'.format(limit)
     if sum > limit:
@@ -84,7 +84,7 @@ def consult(sum,limit,bmi):
     if sum <= limit and sum >= limit-500:
         return 'วันนี้คุณได้รับปริมาณพลังงานอยู่ในช่วงที่เหมาะสมต่อร่างกายแล้ว'
 
-def consult_des(bmi):
+def consult_des(bmi): #สำหรับเช็คเกณฑ์ bmi เพื่อนำไปเทียบกับข้อมูลใน Data และสรุปผล
     if bmi >= 17.5 and bmi <18.5:
         return 't'
     if bmi < 17.5:

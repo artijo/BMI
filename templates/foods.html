@@ -60,12 +60,12 @@
                             </div>
                         </div>
                         <div class="totol">
-                            <p>คุณทานไป {{s}} Kcal</p>
+                            <p>คุณทานไป {{session['sumcal']}} Kcal</p>
                             {% if cklimit >= 0 %}
-                            <p>คุณสามารถทานได้อีก {{climit}} Kcal</p>
+                            <p>คุณสามารถทานได้อีก {{session['cllimit']}} Kcal</p>
                             {% endif %}
                             {% if cklimit < 0 %}
-                            <p style="color:red ;">คุณทานอาหารเกินกำหนดแล้ว {{climit}} Kcal</p>
+                            <p style="color:red ;">คุณทานอาหารเกินกำหนดแล้ว {{session['cllimit']}} Kcal</p>
                             {% endif %}
                         </div>
                         <form action="{{url_for('foodscal')}}" method="post">
