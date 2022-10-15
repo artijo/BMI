@@ -54,11 +54,7 @@ def result():
 
 @app.route('/foods',methods=['GET','POST'])
 def foodscal():
-    name=False
-    food = False
-    foodcal = False
-    sumcal = False
-    countfoods = False
+    name = food = foodcal = sumcal = countfoods = False
     callimit = float()
     foods=data.foods
     if request.method == 'POST':
