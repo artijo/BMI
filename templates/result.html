@@ -25,8 +25,8 @@
                 <div class="al"><span>**ใช้เป็นเพียง Guideline เบื้องต้นเท่านั้น การคำนวณต่างๆ เป็นเพียงค่าเฉลี่ยของร่างกาย ระบบร่ายกายแต่ละคนมีความแตกต่างกันออกไป</span></div>
 
                 <div class="nav">
-                    <a href="{{url_for('logout')}}"><button class="btn-alt logout">คำนวณใหม่</button></a>
-                    <a href="{{url_for('foodscal')}}"><button class="btn-alt">คำนวณพลังงานในอาหาร--></button></a>
+                    <a href="{{url_for('logout')}}"><button class="custom-btn btn-11">คำนวณใหม่</button></a>
+                    <a href="{{url_for('foodscal')}}"><button class="custom-btn btn-13">คำนวณการรับพลังงานจากอาหาร</button></a>
                 </div>
                 
                     <div class="card-bmi">
@@ -45,12 +45,14 @@
                         </div>
                     </div>
 
-                    <div class="card-bmi-info">
-                        <div class="card-info-head"><h2><strong>What is BMI ,BMR & TDEE?</strong></h2></div>
-                        <div class="c-info-detail"><h3>Body Mass Index (BMI)</h3> <p>หรือที่เรียกว่า “ดัชนีมวลกาย” เป็นการแบ่งวัดระดับความอ้วนแบบง่ายๆ โดยดูจากน้ำหนักและส่วนสูง</p></div>
-                        <div class="c-info-detail"><h3>Basal Metabolic Rate (BMR)</h3><p>คือ อัตราการความต้องการเผาผลาญของร่างกายในชีวิตประจำวัน หรือจำนวนแคลอรี่ขั้นต่ำที่ต้องการใช้ในชีวิตแต่ละวัน</p></div>
-                        <div class="c-info-detail"><h3>Total Daily Energy Expenditure (TDEE)</h3> <p>คือการใช้พลังงานทั้งหมดในแต่ละวันที่คุณเผาผลาญตลอดทั้งวันโดยพิจารณาจากน้ำหนัก ส่วนสูง อายุ และระดับกิจกรรมของคุณ</p></div>
-                    </div>
+                    <details>
+                        <summary><h2>What is BMI ,BMR & TDEE?</h2></summary>
+                        <div class="cot">
+                            <h3>Body Mass Index (BMI)</h3> <p>หรือที่เรียกว่า “ดัชนีมวลกาย” เป็นการแบ่งวัดระดับความอ้วนแบบง่ายๆ โดยดูจากน้ำหนักและส่วนสูง</p>
+                            <h3>Basal Metabolic Rate (BMR)</h3><p>คือ อัตราการความต้องการเผาผลาญของร่างกายในชีวิตประจำวัน หรือจำนวนแคลอรี่ขั้นต่ำที่ต้องการใช้ในชีวิตแต่ละวัน</p>
+                            <h3>Total Daily Energy Expenditure (TDEE)</h3> <p>คือการใช้พลังงานทั้งหมดในแต่ละวันที่คุณเผาผลาญตลอดทั้งวันโดยพิจารณาจากน้ำหนัก ส่วนสูง อายุ และระดับกิจกรรมของคุณ</p>
+                        </div>
+                    </details>
               
                 {% endif %}
                 

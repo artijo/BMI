@@ -20,8 +20,10 @@
             <div class="s-container">
                 {% if session['name'] %}
                 <h2 class="title-name">สรุปผลค่า BMI และการกินของคุณใน 1 วัน! <strong>{{session['name']}}</strong>!</h2>
-                <a href="{{url_for('logout')}}"><button class="btn-alt logout food">กลับหน้าแรก</button></a>
                 <div class="al"><span>**ใช้เป็นเพียง Guideline เบื้องต้นเท่านั้น การคำนวณต่างๆ เป็นเพียงค่าเฉลี่ยของร่างกาย ระบบร่ายกายแต่ละคนมีความแตกต่างกันออกไป</span></div>
+                <div class="nav">
+                    <a href="{{url_for('logout')}}"><button class="custom-btn btn-11">กลับหน้าแรก</button></a>
+                </div>
                 <div class="card-bmi">
                     <div class="card-head">ผลสรุป</div>
                         <div class="card-detail">
