@@ -107,7 +107,7 @@ def advise():
     consult_de=fn.consult_des(bmi)
     consult_de=data.CON[consult_de]
     
-    adv=fn.consult(sum,limit)
+    adv=fn.consult(sum,limit,bmi)
 
     session['consult'] = consult_de
     session['advice'] = adv
