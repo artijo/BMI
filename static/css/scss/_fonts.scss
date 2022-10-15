@@ -35,3 +35,67 @@ Font Name: IBM Plex Thai
     font-style: normal;
     font-display: swap;
 }
+
+// Anakotmai
+@font-face {
+    font-family: 'Anakotmai';
+    src: url("../fonts/Anakotmai/anakotmai-bold.woff2") format('woff2'),
+        url('../fonts/Anakotmai/anakotmai-bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Anakotmai';
+    src: url('../fonts/Anakotmai/anakotmai-light.woff2') format('woff2'),
+        url('../fonts/Anakotmai/anakotmai-light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Anakotmai';
+    src: url('../fonts/Anakotmai/anakotmai-medium.woff2') format('woff2'),
+        url('../fonts/Anakotmai/anakotmai-medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*
+Font Name: Chulabhorn Likit
+*/
+@font-face {
+    font-family: "Chulabhorn Likit";
+    src: url("../fonts/Chulabhorn_Likit/chulabhornlikittext-light.woff2") format("woff2"),
+        url("../fonts/Chulabhorn_Likit/chulabhornlikittext-light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Chulabhorn Likit";
+    src: url("../fonts/Chulabhorn_Likit/chulabhornlikittext-regular.woff2") format("woff2"),
+        url("../fonts/Chulabhorn_Likit/chulabhornlikittext-regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Chulabhorn Likit";
+    src: url("../fonts/Chulabhorn_Likit/chulabhornlikitdisplay-medium.woff2") format("woff2"),
+        url("../fonts/Chulabhorn_Likit/chulabhornlikitdisplay-medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Chulabhorn Likit";
+    src: url("../fonts/Chulabhorn_Likit/chulabhornlikittext-bold.woff2") format("woff2"),
+        url("../fonts/Chulabhorn_Likit/chulabhornlikittext-bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
