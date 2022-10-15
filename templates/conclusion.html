@@ -25,11 +25,11 @@
                     <a href="{{url_for('logout')}}"><button class="custom-btn btn-11">กลับหน้าแรก</button></a>
                 </div>
                 <div class="card-bmi">
-                    <div class="card-head">ผลสรุป</div>
+                    <div class="card-head"><h3>ผลสรุป</h3></div>
                         <div class="card-detail">
-                            <div class="c-title"><p1>ตอนนี้ค่าBMIของคุณอยู่ในเกณฑ์</p1><h3>{{session.bmi_status['status']}}</h3></div>
+                            <div class="c-title"><p1>ตอนนี้ค่า BMI ของคุณอยู่ในเกณฑ์</p1><h3>{{session.bmi_status['status']}}</h3></div>
                             <div class="card-head">แคลอรี่ที่คุณได้รับในวันนี้</div>
-                            <div class="c-title"><h4>{{t}} Kcal | limit {{lim}}</h4></div>
+                            <div class="c-title"><h4>{{t}} Kcal | Limit {{lim}}</h4></div>
                             <p>{{adv}}</p>
                             <div class ="card-detail"><span>{{de['de']}}</span></div>
                         </div>
