@@ -22,7 +22,7 @@
                 </div>
             </header>
             <div class="s-container">
-                <div class="al"><span>**ใช้เป็นเพียง Guideline เบื้องต้นเท่านั้น การคำนวณต่างๆ เป็นเพียงค่าเฉลี่ยของร่างกาย ระบบร่ายกายแต่ละคนมีความแตกต่างกันออกไป</span></div>
+                <div class="al"><span>**ใช้เป็นเพียง Guideline เบื้องต้นเท่านั้น การคำนวณต่างๆ เป็นเพียงค่าเฉลี่ยของร่างกาย ค่าผลลัพธ์ที่ได้เป็นค่าที่ได้จากการคำนวณจากสูตรทางคณิตศาสตร์ ควรยึดไว้เป็นกรอบไว้คร่าวๆเท่านั้น ระบบร่ายกายแต่ละคนมีความแตกต่างกันออกไป</span></div>
                 <div class="nav">
                     <a href="{{url_for('logout')}}"><button class="custom-btn btn-11">กลับหน้าแรก</button></a>
                     <a href="{{url_for('advise')}}"><button class="custom-btn btn-13">ไปยังหน้าคำแนะนำ</button></a>
@@ -50,7 +50,7 @@
                     {% if session['foods'] %}
                     <div class="pickfood-f">
                         <h2 class="title-p">อาหารที่คุณรับประทาน</h2>
-                        <p class="show-al">TDEE ของคุณ: {{session.tdee}}, BMI ของคุณอยู่ในเกณฑ์ {{session.bmi_status['status']}} คุณควรรับพลังงานประมาณ {{session.tdee_food}}/วัน เพื่อให้ร่างกายเอยู่ในสภาวะสมดุล</p>
+                        <p class="show-al">TDEE ของคุณ: {{session.tdee}}, BMI ของคุณอยู่ในเกณฑ์ {{session.bmi_status['status']}} คุณควรรับพลังงานประมาณ {{session.tdee_food}}/วัน เพื่อให้ร่างกายอยู่ในสภาวะสมดุล</p>
                         <div class="show-fbox">
                             <div class="show-foods">
                             {% for i in range(c) %}

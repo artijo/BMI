@@ -68,7 +68,7 @@ foods = {
         },
     "karee":{
         "name":"ผัดพงกะหรี่",
-        "cal":746.1
+        "cal":746
         },
     "pad":{
         "name":"ข้าวผัด",
@@ -80,7 +80,7 @@ foods = {
         },
     "kao-na-kai-yak":{
         "name":"ข้าวหน้าไก่ย่าง",
-        "cal":397.5
+        "cal":397
         },
     "lummu":{
         "name":"ลาบหมู",
@@ -192,7 +192,7 @@ foods = {
     },
     "pineapple curry":{
         "name":"แกงสัปปะรด",
-        "cal":394.4
+        "cal":394
     },
     "wing zap":{
         "name":"วิงซ์แซ่บ",
